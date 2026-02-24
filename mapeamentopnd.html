@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)file:///home/calebe/index.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise PND 2025 × Currículo Pedagogia</title>
+<link href="./mapeamentopnd_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f5f8;
+    --surface: #ffffff;
+    --surface2: #f0f0f5;
+    --accent1: #c47f0a;
+    --accent2: #3a5ee8;
+    --accent3: #d63770;
+    --accent4: #2a9e50;
+    --text: #1a1a2e;
+    --muted: #7a7a96;
+    --border: #dcdce8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    padding: 48px 60px 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(58,94,232,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 30%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(196,127,10,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent1);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.05;
+    background: linear-gradient(135deg, #1a1a2e 0%, #3a5ee8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    background: var(--surface);
+    padding: 24px 32px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .stat:hover { background: var(--surface2); }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent2);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    min-height: calc(100vh - 220px);
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    border-right: 1px solid var(--border);
+    padding: 28px;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 220px);
+    overflow-y: auto;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .sidebar-title {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+
+  .discipline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 2px;
+    border: 1px solid transparent;
+  }
+  .discipline-item:hover, .discipline-item.active {
+    background: var(--surface2);
+    border-color: var(--border);
+  }
+  .discipline-item.active { border-color: var(--accent2); }
+  .disc-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .disc-name {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .disc-count {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--surface2);
+    padding: 2px 7px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .no-disc {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .no-disc-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+
+  /* CONTENT AREA */
+  .content {
+    padding: 28px 32px;
+    overflow-y: auto;
+    max-height: calc(100vh - 220px);
+  }
+  .content::-webkit-scrollbar { width: 4px; }
+  .content::-webkit-scrollbar-track { background: transparent; }
+  .content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    background: rgba(92,124,250,0.08);
+  }
+
+  /* CARDS GRID */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .topic-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+  .topic-card:hover {
+    transform: translateY(-2px);
+    border-color: #c0c0d8;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+  .topic-card.hidden { display: none; }
+
+  .card-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .q-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 0.3px;
+  }
+  .card-theme {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-disciplines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .disc-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .no-disc-tag {
+    font-size: 11px;
+    color: var(--accent3);
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  .gap-item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(214,55,112,0.07);
+    border: 1px solid rgba(214,55,112,0.2);
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #b02060;
+    line-height: 1.4;
+  }
+
+  /* TOOLTIP / DETAIL PANEL */
+  .detail-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .detail-overlay.open { display: flex; }
+  .detail-panel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 680px;
+    width: 100%;
+    position: relative;
+    animation: slideUp 0.25s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .detail-panel::-webkit-scrollbar { width: 4px; }
+  .detail-panel::-webkit-scrollbar-track { background: transparent; }
+  .detail-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .close-btn {
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+  }
+  .close-btn:hover { color: var(--text); }
+  .detail-qs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .detail-theme { font-size: 18px; font-weight: 600; margin-bottom: 16px; line-height: 1.4; }
+  .detail-disc-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .detail-disc-list { display: flex; flex-direction: column; gap: 8px; }
+  .detail-disc-item {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    border: 1px solid;
+  }
+
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    .stats-bar { grid-template-columns: repeat(2,1fr); }
+    header { padding: 32px 24px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Análise Curricular · Pedagogia 2026/01</div>
+  <h1>PND 2025<br>× Currículo</h1>
+  <div class="header-sub">Mapeamento de temas da prova com disciplinas do curso</div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num" id="totalTopics">35</div>
+    <div class="stat-label">Blocos Temáticos</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" id="totalDiscs">22</div>
+    <div class="stat-label">Disciplinas Mapeadas</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" id="totalGaps">9</div>
+    <div class="stat-label">Temas sem Disciplina</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num" id="totalQ">73+</div>
+    <div class="stat-label">Questões Analisadas</div>
+  </div>
+</div>
+
+<div class="main">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">Disciplinas</div>
+    <div id="disciplineList"><div class="discipline-item">
+    <span class="disc-dot" style="background:#823cdc"></span>
+    <span class="disc-name">Educação de Jovens e Adultos</span>
+    <span class="disc-count">4</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#2a9e50"></span>
+    <span class="disc-name">Práticas e perspectivas para a Educação Inclusiva</span>
+    <span class="disc-count">3</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#7a6400"></span>
+    <span class="disc-name">Avaliação dos processos de ensino e aprendizagem</span>
+    <span class="disc-count">3</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#d63770"></span>
+    <span class="disc-name">Políticas Públicas para a Educação</span>
+    <span class="disc-count">2</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#b41e1e"></span>
+    <span class="disc-name">Campos de experiência na Educação Infantil</span>
+    <span class="disc-count">2</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#0082be"></span>
+    <span class="disc-name">Práticas para o desenvolvimento do pensamento matemático</span>
+    <span class="disc-count">2</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#c47f0a"></span>
+    <span class="disc-name">Oficina de Formação do Professor Leitor</span>
+    <span class="disc-count">2</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#0082be"></span>
+    <span class="disc-name">Coordenação Pedagógica</span>
+    <span class="disc-count">2</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#7a6400"></span>
+    <span class="disc-name">Gestão e Planejamento Curricular</span>
+    <span class="disc-count">2</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#3a5ee8"></span>
+    <span class="disc-name">Princípios e Contextos para a Alfabetização e Letramento</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#c47f0a"></span>
+    <span class="disc-name">Práticas para Alfabetização</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#d25014"></span>
+    <span class="disc-name">História da Educação e Teorias Pedagógicas</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#009682"></span>
+    <span class="disc-name">Fundamentos da tecnologia para a vida acadêmica</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#3a5ee8"></span>
+    <span class="disc-name">Análise estatística de cenários educacionais</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#2a9e50"></span>
+    <span class="disc-name">Práticas Educacionais na 1ª infância: crianças de 4 a 5 anos</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#d63770"></span>
+    <span class="disc-name">Fundamentos da Língua Portuguesa para Docência na Educação Básica</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#823cdc"></span>
+    <span class="disc-name">LIBRAS</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#d25014"></span>
+    <span class="disc-name">Conteúdos para a atuação do educador no 3º setor</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#009682"></span>
+    <span class="disc-name">Aprendizagem e Desenvolvimento Humano I</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#b41e1e"></span>
+    <span class="disc-name">Princípios e contextos para a Alfabetização e Letramento</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#3a5ee8"></span>
+    <span class="disc-name">Práticas para o ensino de História e Geografia</span>
+    <span class="disc-count">1</span>
+  </div><div class="discipline-item">
+    <span class="disc-dot" style="background:#c47f0a"></span>
+    <span class="disc-name">Culturas Brasileiras</span>
+    <span class="disc-count">1</span>
+  </div></div>
+
+    <div class="no-disc">
+      <div class="no-disc-label">⚠ Lacunas Identificadas</div>
+      <div id="gapList"><div class="gap-item">Q.5,6,15,21 — Questões ambientais e sustentabilidade</div><div class="gap-item">Q.8 — Educação no Campo</div><div class="gap-item">Q.12,13 — Pedagogia de Projetos articulada aos ODS (especialmente ODS 12)</div><div class="gap-item">Q.4 — Uso do nome social na escola</div><div class="gap-item">Q.14,19 — Populações indígenas; oralidade e transmissão do conhecimento</div><div class="gap-item">Q.16 — Território quilombola</div><div class="gap-item">Q.28 — Equidade de gênero</div><div class="gap-item">Q.29 — Ações afirmativas</div><div class="gap-item">Q.30 — Racismo religioso</div></div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <section class="content">
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="gap">Com Lacuna</button>
+      <button class="filter-btn" data-filter="mapped">Mapeados</button>
+    </div>
+    <div class="cards-grid" id="cardsGrid"><div class="topic-card" data-area="mapped" data-discs="Princípios e Contextos para a Alfabetização e Letramento|Práticas para Alfabetização" style="--stripe: #3a5ee8;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#3a5ee8;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.1</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.2</span></div>
+      <div class="card-theme">PNLD – Programa Nacional do Livro e do Material Didático</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(58,94,232,0.1);color:#2a4cc4;border:1px solid rgba(58,94,232,0.35)">Princípios e Contextos para a Alfabetização e Letramento</span><span class="disc-tag" style="background:rgba(196,127,10,0.1);color:#a06808;border:1px solid rgba(196,127,10,0.35)">Práticas para Alfabetização</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Práticas e perspectivas para a Educação Inclusiva" style="--stripe: #2a9e50;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#2a9e50;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.3</span></div>
+      <div class="card-theme">Saúde mental e medicalização na escola</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(42,158,80,0.1);color:#1f7a3e;border:1px solid rgba(42,158,80,0.35)">Práticas e perspectivas para a Educação Inclusiva</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Práticas e perspectivas para a Educação Inclusiva" style="--stripe: #2a9e50;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#2a9e50;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.26</span></div>
+      <div class="card-theme">Paradigma da inclusão x integração</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(42,158,80,0.1);color:#1f7a3e;border:1px solid rgba(42,158,80,0.35)">Práticas e perspectivas para a Educação Inclusiva</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Práticas e perspectivas para a Educação Inclusiva" style="--stripe: #2a9e50;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#2a9e50;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.51</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.52</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.55</span></div>
+      <div class="card-theme">Atendimento Educacional Especializado (AEE); tecnologias assistivas e TICs no AEE</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(42,158,80,0.1);color:#1f7a3e;border:1px solid rgba(42,158,80,0.35)">Práticas e perspectivas para a Educação Inclusiva</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Políticas Públicas para a Educação|Educação de Jovens e Adultos" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.6</span></div>
+      <div class="card-theme">Perspectiva freireana na Educação</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(214,55,112,0.1);color:#b02060;border:1px solid rgba(214,55,112,0.35)">Políticas Públicas para a Educação</span><span class="disc-tag" style="background:rgba(130,60,220,0.1);color:#7020c0;border:1px solid rgba(130,60,220,0.35)">Educação de Jovens e Adultos</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="História da Educação e Teorias Pedagógicas" style="--stripe: #d25014;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d25014;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.9</span></div>
+      <div class="card-theme">História da Educação no Brasil</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(210,80,20,0.1);color:#b04010;border:1px solid rgba(210,80,20,0.35)">História da Educação e Teorias Pedagógicas</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Educação de Jovens e Adultos" style="--stripe: #823cdc;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#823cdc;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.10</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.11</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.22</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.45</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.46</span></div>
+      <div class="card-theme">Educação de Jovens e Adultos (EJA)</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(130,60,220,0.1);color:#7020c0;border:1px solid rgba(130,60,220,0.35)">Educação de Jovens e Adultos</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Educação de Jovens e Adultos" style="--stripe: #823cdc;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#823cdc;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.71</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.72</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.73</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.74</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.75</span></div>
+      <div class="card-theme">Método de alfabetização para EJA – Paulo Freire</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(130,60,220,0.1);color:#7020c0;border:1px solid rgba(130,60,220,0.35)">Educação de Jovens e Adultos</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Fundamentos da tecnologia para a vida acadêmica" style="--stripe: #009682;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#009682;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.7</span></div>
+      <div class="card-theme">Metodologias ativas, acesso à internet e recursos tecnológicos</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(0,150,130,0.1);color:#007a6a;border:1px solid rgba(0,150,130,0.35)">Fundamentos da tecnologia para a vida acadêmica</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Políticas Públicas para a Educação" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.20</span></div>
+      <div class="card-theme">Lei nº 10.639/2003 – Ensino de História e Cultura Afro-Brasileira</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(214,55,112,0.1);color:#b02060;border:1px solid rgba(214,55,112,0.35)">Políticas Públicas para a Educação</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Campos de experiência na Educação Infantil|Práticas para o desenvolvimento do pensamento matemático" style="--stripe: #b41e1e;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#b41e1e;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.23</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.27</span></div>
+      <div class="card-theme">Letramento científico</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(180,30,30,0.1);color:#a01a1a;border:1px solid rgba(180,30,30,0.35)">Campos de experiência na Educação Infantil</span><span class="disc-tag" style="background:rgba(0,130,190,0.1);color:#0068a0;border:1px solid rgba(0,130,190,0.35)">Práticas para o desenvolvimento do pensamento matemático</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Avaliação dos processos de ensino e aprendizagem" style="--stripe: #7a6400;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#7a6400;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.24</span></div>
+      <div class="card-theme">Avaliação dos processos de ensino e aprendizagem</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(100,80,0,0.1);color:#6a5400;border:1px solid rgba(100,80,0,0.35)">Avaliação dos processos de ensino e aprendizagem</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Avaliação dos processos de ensino e aprendizagem|Análise estatística de cenários educacionais" style="--stripe: #7a6400;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#7a6400;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.25</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.56</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.57</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.58</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.59</span></div>
+      <div class="card-theme">Avaliações externas em larga escala (Saeb, Ideb)</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(100,80,0,0.1);color:#6a5400;border:1px solid rgba(100,80,0,0.35)">Avaliação dos processos de ensino e aprendizagem</span><span class="disc-tag" style="background:rgba(58,94,232,0.1);color:#2a4cc4;border:1px solid rgba(58,94,232,0.35)">Análise estatística de cenários educacionais</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Avaliação dos processos de ensino e aprendizagem" style="--stripe: #7a6400;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#7a6400;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.50</span></div>
+      <div class="card-theme">Avaliação formativa</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(100,80,0,0.1);color:#6a5400;border:1px solid rgba(100,80,0,0.35)">Avaliação dos processos de ensino e aprendizagem</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Educação de Jovens e Adultos" style="--stripe: #823cdc;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#823cdc;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Discursiva</span></div>
+      <div class="card-theme">Idadismo como desafio social e educacional; diferenças geracionais no contexto escolar</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(130,60,220,0.1);color:#7020c0;border:1px solid rgba(130,60,220,0.35)">Educação de Jovens e Adultos</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Oficina de Formação do Professor Leitor" style="--stripe: #c47f0a;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#c47f0a;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.31</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.32</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.33</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.34</span></div>
+      <div class="card-theme">Literatura de cordel</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(196,127,10,0.1);color:#a06808;border:1px solid rgba(196,127,10,0.35)">Oficina de Formação do Professor Leitor</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Práticas para o desenvolvimento do pensamento matemático" style="--stripe: #0082be;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#0082be;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.37</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.38</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.39</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.40</span></div>
+      <div class="card-theme">Habilidades relacionadas à Matemática</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(0,130,190,0.1);color:#0068a0;border:1px solid rgba(0,130,190,0.35)">Práticas para o desenvolvimento do pensamento matemático</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Práticas Educacionais na 1ª infância: crianças de 4 a 5 anos" style="--stripe: #2a9e50;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#2a9e50;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.41</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.42</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.43</span></div>
+      <div class="card-theme">Propostas pedagógicas na Educação Infantil</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(42,158,80,0.1);color:#1f7a3e;border:1px solid rgba(42,158,80,0.35)">Práticas Educacionais na 1ª infância: crianças de 4 a 5 anos</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Fundamentos da Língua Portuguesa para Docência na Educação Básica" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.47</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.48</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.49</span></div>
+      <div class="card-theme">Trabalho interdisciplinar nos Anos Iniciais do EF; interpretação de texto</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(214,55,112,0.1);color:#b02060;border:1px solid rgba(214,55,112,0.35)">Fundamentos da Língua Portuguesa para Docência na Educação Básica</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="LIBRAS" style="--stripe: #823cdc;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#823cdc;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.54</span></div>
+      <div class="card-theme">LIBRAS</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(130,60,220,0.1);color:#7020c0;border:1px solid rgba(130,60,220,0.35)">LIBRAS</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Conteúdos para a atuação do educador no 3º setor" style="--stripe: #d25014;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d25014;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.60</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.61</span></div>
+      <div class="card-theme">Atuação do pedagogo no 3º setor</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(210,80,20,0.1);color:#b04010;border:1px solid rgba(210,80,20,0.35)">Conteúdos para a atuação do educador no 3º setor</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Aprendizagem e Desenvolvimento Humano I" style="--stripe: #009682;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#009682;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.68</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.70</span></div>
+      <div class="card-theme">Teoria de Vygotsky; Zona de Desenvolvimento Proximal (ZDP)</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(0,150,130,0.1);color:#007a6a;border:1px solid rgba(0,150,130,0.35)">Aprendizagem e Desenvolvimento Humano I</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Campos de experiência na Educação Infantil|Oficina de Formação do Professor Leitor|Princípios e contextos para a Alfabetização e Letramento" style="--stripe: #b41e1e;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#b41e1e;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.76</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.77</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.78</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.79</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.80</span></div>
+      <div class="card-theme">Campos de experiência (BNCC); literatura na Ed. Infantil; letramento literário</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(180,30,30,0.1);color:#a01a1a;border:1px solid rgba(180,30,30,0.35)">Campos de experiência na Educação Infantil</span><span class="disc-tag" style="background:rgba(196,127,10,0.1);color:#a06808;border:1px solid rgba(196,127,10,0.35)">Oficina de Formação do Professor Leitor</span><span class="disc-tag" style="background:rgba(180,30,30,0.1);color:#a01a1a;border:1px solid rgba(180,30,30,0.35)">Princípios e contextos para a Alfabetização e Letramento</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Coordenação Pedagógica|Gestão e Planejamento Curricular" style="--stripe: #0082be;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#0082be;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.17</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.18</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.19</span></div>
+      <div class="card-theme">Gestão e planejamento curricular (Gimeno Sacristán, Tomaz Tadeu da Silva)</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(0,130,190,0.1);color:#0068a0;border:1px solid rgba(0,130,190,0.35)">Coordenação Pedagógica</span><span class="disc-tag" style="background:rgba(100,80,0,0.1);color:#6a5400;border:1px solid rgba(100,80,0,0.35)">Gestão e Planejamento Curricular</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Coordenação Pedagógica|Gestão e Planejamento Curricular" style="--stripe: #0082be;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#0082be;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.62</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.63</span></div>
+      <div class="card-theme">Elaboração e implementação do PPP (Projeto Político-Pedagógico)</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(0,130,190,0.1);color:#0068a0;border:1px solid rgba(0,130,190,0.35)">Coordenação Pedagógica</span><span class="disc-tag" style="background:rgba(100,80,0,0.1);color:#6a5400;border:1px solid rgba(100,80,0,0.35)">Gestão e Planejamento Curricular</span></div>
+    </div><div class="topic-card" data-area="mapped" data-discs="Práticas para o ensino de História e Geografia|Culturas Brasileiras" style="--stripe: #3a5ee8;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#3a5ee8;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.35</span><span class="q-tag" style="background:rgba(58,94,232,0.12);color:#2a4cc4">Q.36</span></div>
+      <div class="card-theme">Fundamentos teórico-metodológicos para o ensino de Geografia nos Anos Iniciais (Círio de Nazaré / Patrimônio Unesco)</div>
+      <div class="card-disciplines"><span class="disc-tag" style="background:rgba(58,94,232,0.1);color:#2a4cc4;border:1px solid rgba(58,94,232,0.35)">Práticas para o ensino de História e Geografia</span><span class="disc-tag" style="background:rgba(196,127,10,0.1);color:#a06808;border:1px solid rgba(196,127,10,0.35)">Culturas Brasileiras</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.5</span><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.6</span><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.15</span><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.21</span></div>
+      <div class="card-theme">Questões ambientais e sustentabilidade</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.8</span></div>
+      <div class="card-theme">Educação no Campo</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.12</span><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.13</span></div>
+      <div class="card-theme">Pedagogia de Projetos articulada aos ODS (especialmente ODS 12)</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.4</span></div>
+      <div class="card-theme">Uso do nome social na escola</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.14</span><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.19</span></div>
+      <div class="card-theme">Populações indígenas; oralidade e transmissão do conhecimento</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.16</span></div>
+      <div class="card-theme">Território quilombola</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.28</span></div>
+      <div class="card-theme">Equidade de gênero</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.29</span></div>
+      <div class="card-theme">Ações afirmativas</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div><div class="topic-card" data-area="gap" data-discs="" style="--stripe: #d63770;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d63770;border-radius:12px 12px 0 0"></div>
+      <div class="card-questions"><span class="q-tag" style="background:rgba(214,55,112,0.12);color:#b02060">Q.30</span></div>
+      <div class="card-theme">Racismo religioso</div>
+      <div class="card-disciplines"><span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span></div>
+    </div></div>
+  </section>
+</div>
+
+<!-- DETAIL OVERLAY -->
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-panel">
+    <button class="close-btn" onclick="closeDetail()">✕</button>
+    <div class="detail-qs" id="detailQs"></div>
+    <div class="detail-theme" id="detailTheme"></div>
+    <div class="detail-questions-section" id="detailQuestionsSection">
+      <div class="detail-disc-title" style="margin-bottom:10px">ENUNCIADOS DA PROVA</div>
+      <div id="detailQuestionsList"></div>
+    </div>
+    <div class="detail-disc-title" style="margin-top:18px">DISCIPLINAS DO CURRÍCULO</div>
+    <div class="detail-disc-list" id="detailDiscs"></div>
+  </div>
+</div>
+
+<script>
+const COLORS = [
+  { bg: 'rgba(58,94,232,0.1)', border: 'rgba(58,94,232,0.35)', text: '#2a4cc4', dot: '#3a5ee8' },
+  { bg: 'rgba(196,127,10,0.1)', border: 'rgba(196,127,10,0.35)', text: '#a06808', dot: '#c47f0a' },
+  { bg: 'rgba(42,158,80,0.1)', border: 'rgba(42,158,80,0.35)', text: '#1f7a3e', dot: '#2a9e50' },
+  { bg: 'rgba(214,55,112,0.1)', border: 'rgba(214,55,112,0.35)', text: '#b02060', dot: '#d63770' },
+  { bg: 'rgba(130,60,220,0.1)', border: 'rgba(130,60,220,0.35)', text: '#7020c0', dot: '#823cdc' },
+  { bg: 'rgba(210,80,20,0.1)', border: 'rgba(210,80,20,0.35)', text: '#b04010', dot: '#d25014' },
+  { bg: 'rgba(0,150,130,0.1)', border: 'rgba(0,150,130,0.35)', text: '#007a6a', dot: '#009682' },
+  { bg: 'rgba(180,30,30,0.1)', border: 'rgba(180,30,30,0.35)', text: '#a01a1a', dot: '#b41e1e' },
+  { bg: 'rgba(0,130,190,0.1)', border: 'rgba(0,130,190,0.35)', text: '#0068a0', dot: '#0082be' },
+  { bg: 'rgba(100,80,0,0.1)', border: 'rgba(100,80,0,0.35)', text: '#6a5400', dot: '#7a6400' },
+];
+
+// Enunciados completos com alternativas extraídos da prova PND2025
+const questionTexts = {
+  '1': {
+    enunciado: 'Considerando o Texto 1, o Programa Nacional do Livro e do Material Didático (PNLD) vem contribuindo para',
+    alternativas: [
+      'A) difundir conhecimentos socioculturais atuais com base na neutralidade que o processo de ensino e de aprendizagem requer.',
+      'B) apresentar abordagens de temas socioculturais atuais e sensíveis que possam alterar o processo de ensino e de aprendizagem.',
+      'C) divulgar os saberes socioculturais atuais e a historicidade humana para atender aos estudantes de regiões de difícil acesso.',
+      'D) abordar os contextos socioculturais atuais considerados relevantes e a historicidade que consolidou a existência humana.',
+    ]
+  },
+  '2': {
+    enunciado: 'Relacionando os textos 1 e 2, marque a alternativa que apresenta a percepção docente orientada pela função referencial proposta por Choppin (2004).',
+    alternativas: [
+      'A) "Escolho um livro que apresente temáticas sociais essenciais com reflexões sobre o conteúdo da disciplina".',
+      'B) "Prefiro os livros com sistematização coerente dos objetos de conhecimento da disciplina e transposição didática adequada".',
+      'C) "Considero adequados os livros que expressam conceitos por meio de elementos variados, como imagens, palavras, mapas e gráficos".',
+      'D) "Levo em consideração livros que apresentem a norma culta da língua e valores sociais predominantes nos conteúdos apresentados".',
+    ]
+  },
+  '3': {
+    enunciado: 'Um grupo de professores do Ensino Médio utiliza a obra O alienista para desenvolver um Projeto de Vida que promova discussões sobre saúde mental e bem-estar coletivo na comunidade escolar. Essa obra foi selecionada por permitir o desenvolvimento de propostas pedagógicas que',
+    alternativas: [
+      'A) estimulem a emissão de laudos pela equipe psicopedagógica para subsidiar intervenções feitas pelos professores.',
+      'B) desenvolvam ações de escuta entre os estudantes para que eles relacionem os temas abordados com suas vivências.',
+      'C) favoreçam críticas à excessiva medicamentalização dos comportamentos incomuns para promover reflexões sobre ética profissional.',
+      'D) abordem a ciência médica por um viés objetivo para definir quais padrões de comportamento são socialmente aceitos.',
+    ]
+  },
+  '4': {
+    enunciado: 'Ao realizar a matrícula em uma escola, uma estudante de 15 anos e seus pais solicitaram à secretaria acadêmica o uso de nome social. A direção recusou o pedido. Diante do caso, com base na Resolução MEC n. 1/2018, que trata do uso do nome social, a gestão deve',
+    alternativas: [
+      'A) permitir o uso do nome social de maneira informal, mantendo os registros escolares internos.',
+      'B) convocar o conselho estudantil para deliberar sobre o caso, por se tratar de uma questão interna da escola.',
+      'C) acatar o pedido quando o nome social for oficialmente retificado no registro civil da estudante.',
+      'D) atender ao pedido mediante formalização da solicitação pelos responsáveis legais da estudante.',
+    ]
+  },
+  '5': {
+    enunciado: 'Uma professora organiza um conjunto de ações para discussão crítica de aspectos relacionados às questões ambientais abordadas nos textos 1 e 2 (COP30 e música "Chuva Ácida" de Criolo). Para isso, ela planeja atividades como',
+    alternativas: [
+      'A) palestras com rappers na escola; e listagem dos objetivos da COP30 no quadro.',
+      'B) leitura coletiva dos textos; e fichamento das ideias centrais e secundárias da letra da canção.',
+      'C) interpretação da letra da canção; e pesquisa sobre ações que contribuem com a preservação da natureza.',
+      'D) registro dos Objetivos de Desenvolvimento Sustentável (ODS) no caderno; e consulta de termos técnicos em dicionários.',
+    ]
+  },
+  '6': {
+    enunciado: 'Considere que essa professora atua em uma escola localizada em um centro urbano e quer trabalhar com suas turmas sob uma perspectiva freireana. Quais atividades ela deve propor aos estudantes para contemplar as temáticas apresentadas nos textos 1 e 2?',
+    alternativas: [
+      'A) 1. realizar um levantamento do entorno escolar, problematizando questões ambientais da comunidade; 2. utilizar conceitos escolares que ajudam a compreender o tema; 3. aplicar os conhecimentos aprendidos previamente, considerando uma análise crítica das ideias debatidas na COP30 e no rap Chuva Ácida.',
+      'B) 1. apresentar um vídeo que mostre os grupos de trabalho e os objetivos da COP30; 2. utilizar um modelo de estufa de plantas a fim de estudar o ciclo hidrológico; 3. aplicar atividades que ajudem os estudantes a fixar o conhecimento da temática abordada na letra de canção.',
+      'C) 1. realizar um levantamento prévio das ideias dos estudantes sobre os problemas ambientais trazidos no rap Chuva Ácida; 2. organizar os subsunçores que contribuem para estudar o tema; 3. promover uma exposição de cartazes para a comunidade considerando as soluções mitigadas na COP30.',
+      'D) 1. apresentar o vídeo do rap Chuva Ácida abordando os assuntos sobre mudanças climáticas; 2. organizar a Zona de Desenvolvimento Proximal, problematizando a interação entre os estudantes que sabem mais sobre o tema; 3. preparar uma exposição apresentando as soluções mitigadas na COP30.',
+    ]
+  },
+  '7': {
+    enunciado: 'O acesso à internet e aos recursos tecnológicos vem crescendo, impactando os sistemas educacionais. Muitas metodologias ativas são implementadas via plataformas digitais, excluindo estudantes sem acesso. Nesse contexto, uma atividade de ensino que utilize Metodologias Ativas na Educação Básica para minimizar a exclusão na sala de aula é',
+    alternativas: [
+      'A) uma aula expositiva realizada pelo professor que aborde o tema de tecnologias, seguida de exercícios de múltipla escolha.',
+      'B) jogos desplugados produzidos pelos estudantes, seguidos da socialização das aprendizagens em uma plenária.',
+      'C) leitura de um texto de referência sobre tecnologias proposta pelo professor, seguida de uma avaliação.',
+      'D) uma aula gamificada com seus dispositivos móveis planejada pelos estudantes, seguida da socialização dos resultados.',
+    ]
+  },
+  '8': {
+    enunciado: 'A Educação do Campo emerge da discussão de diálogos com movimentos sociais. Nesse contexto, a formação do professor para a Educação do Campo tem como princípio',
+    alternativas: [
+      'A) subordinar a cultura, as memórias e a luta do povo do campo à história urbana.',
+      'B) identificar os conhecimentos das comunidades do campo, que contrariam o currículo instituído.',
+      'C) vincular o ensino ao trabalho e desconsiderar os saberes produzidos no contexto escolar urbano.',
+      'D) reconhecer o campo como lugar de vida e de produção que sofreu com um projeto de desenvolvimento exploratório.',
+    ]
+  },
+  '9': {
+    enunciado: 'A História da Educação no Brasil pode ser organizada em períodos com características específicas de paradigmas educacionais de cada época, a exemplo da Escola Nova (décadas de 1920-1930), cujas práticas pedagógicas',
+    alternativas: [
+      'A) tinham uma visão filosófica essencialista de sujeito e uma perspectiva didática centrada no professor.',
+      'B) partiam do pressuposto da neutralidade científica, inspiradas nos princípios da racionalidade e da eficiência.',
+      'C) promoviam o aprendizado do português para os indígenas e seguiam ancoradas na doutrina cristã.',
+      'D) centralizavam a educação nas vivências, nas estratégias de ensino e no interesse do estudante.',
+    ]
+  },
+  '10': {
+    enunciado: 'Em uma turma de EJA, professores integraram as vivências profissionais dos estudantes (motoristas de aplicativo e entregadores) ao currículo de História, Língua Portuguesa e Matemática. Considerando o contexto apresentado, as ações pedagógicas desenvolvidas pelos professores',
+    alternativas: [
+      'A) priorizam os conteúdos disciplinares específicos como estratégia motivadora educacional.',
+      'B) favorecem a experiência de estudantes, enfatizando saberes de uma área de conhecimento.',
+      'C) incentivam a valorização do mundo do trabalho com base em metodologias de ensino inovadoras.',
+      'D) integram as vivências dos estudantes ao currículo, promovendo reflexões sobre o mundo do trabalho.',
+    ]
+  },
+  '11': {
+    enunciado: 'No contexto relatado (EJA com estagiários), o Estágio Supervisionado é concebido como espaço de',
+    alternativas: [
+      'A) formação pedagógica que considera o papel do professor-supervisor como coformador.',
+      'B) interação entre professor-supervisor e estagiários para a aquisição dos conteúdos curriculares.',
+      'C) aquisição de novas tecnologias pelo professor-supervisor para a aplicação em sala de aula.',
+      'D) aplicação de conhecimentos teórico-metodológicos do professor-supervisor no cotidiano escolar.',
+    ]
+  },
+  '12': {
+    enunciado: 'Com base na situação descrita (projeto interdisciplinar sobre reaproveitamento de resíduos orgânicos, ODS 12), a ação educativa que intervém concretamente no contexto escolar é',
+    alternativas: [
+      'A) realizar um levantamento sobre o desperdício na alimentação escolar e divulgá-lo em um evento científico.',
+      'B) mapear os locais de descarte de alimentos e elaborar uma redação sobre o uso dos resíduos gerados.',
+      'C) pesquisar o uso de adubos orgânicos e analisar dados estatísticos sobre os benefícios da compostagem.',
+      'D) organizar uma oficina para o reaproveitamento de alimentos e acompanhar as mudanças comportamentais na escola.',
+    ]
+  },
+  '13': {
+    enunciado: 'Com base no projeto desenvolvido, a alternativa que, sob uma perspectiva crítica, apresenta a relação coerente entre o procedimento metodológico e a avaliação da aprendizagem sobre o consumo responsável de alimentos é um(a)',
+    alternativas: [
+      'A) roda de conversa que aborde ações relacionadas ao valor nutricional dos alimentos, seguida pela aplicação de uma prova objetiva sobre os conceitos necessários para a realização dessas ações.',
+      'B) exposição de banners informativos que apresentem os tipos de alimentos utilizados nas composteiras, seguida por um mapa mental sobre o reaproveitamento da alimentação escolar.',
+      'C) debate que aborde a insegurança alimentar com base nas reflexões provocadas ao longo do projeto, seguido pela produção de um artigo de opinião a ser publicado no jornal da escola.',
+      'D) questionário acerca dos tipos de alimentos consumidos pela comunidade escolar, seguido pela montagem de uma composteira conforme orientações de um manual técnico.',
+    ]
+  },
+  '14': {
+    enunciado: 'Com a intenção de valorizar a presença de estudantes indígenas, uma professora de Filosofia propôs uma proposta pedagógica envolvendo a história de vida dos estudantes e suas experiências com foco no uso da mandioca. Assinale a alternativa que apresenta uma proposta pedagógica que fomente a cooperação entre escola, família e comunidade em relação às populações indígenas.',
+    alternativas: [
+      'A) Elaborar um estudo de caso que exemplifique o uso atual da tapioca na comunidade urbana como forma de validar as práticas agrícolas contemporâneas.',
+      'B) Apresentar vídeos gravados com a participação da comunidade escolar, registrando técnicas ancestrais e contemporâneas de se fazer tapioca.',
+      'C) Construir um mural escolar com depoimentos de nutricionistas que sugerem o consumo da tapioca nas dietas.',
+      'D) Transcrever as falas dos entrevistados sobre as práticas ancestrais agrícolas para análise nas aulas.',
+    ]
+  },
+  '15': {
+    enunciado: 'Uma professora, diante da existência de um aterro no entorno da escola, solicitou que os estudantes elaborassem um projeto com ações sobre sustentabilidade. Em uma perspectiva crítica da Educação Ambiental, as ações propostas pelos estudantes',
+    alternativas: [
+      'A) normalizam o consumo e o acúmulo de bens como origem da produção dos resíduos.',
+      'B) proporcionam uma mudança comportamental em relação ao descarte dos resíduos.',
+      'C) prejudicam o trabalho dos catadores que têm a coleta dos resíduos como fonte de renda.',
+      'D) preservam o ambiente ao deslocar os resíduos do entorno escolar para outra área.',
+    ]
+  },
+  '16': {
+    enunciado: 'Em uma escola localizada em território quilombola, as turmas estavam envolvidas com a festividade de Santo Antônio. Um professor de História convidou professores de outras áreas para atividades pedagógicas sobre o Inventário Cultural Quilombola. Com base no cenário apresentado, uma intervenção didática que considera a colaboração entre escola e comunidade quilombola é aquela que',
+    alternativas: [
+      'A) realiza leituras de textos sobre a festividade para normatizar saberes na escola.',
+      'B) insere festividades contemporâneas para renovar os princípios educativos da escola.',
+      'C) promove atividades para reconhecer ritos significativos para a comunidade durante a organização da festa.',
+      'D) organiza feiras com produtos industrializados para possibilitar a integração da comunidade com os espaços urbanos.',
+    ]
+  },
+  '17': {
+    enunciado: 'Em uma escola pública municipal, a equipe revisa o PPP à luz da BNCC. A coordenadora pedagógica apresenta a perspectiva do currículo moldado segundo Gimeno Sacristán (2000). Diante do exposto, a concepção curricular apresentada implica assumir o currículo como',
+    alternativas: [
+      'A) construção social e o professor como agente mediador no desenvolvimento curricular.',
+      'B) elemento neutro e o professor como agente condutor dos referenciais curriculares.',
+      'C) diretriz nacional e o professor como agente executor do currículo apresentado.',
+      'D) produto e o professor como agente educacional na apropriação curricular.',
+    ]
+  },
+  '18': {
+    enunciado: 'Na obra Documentos de identidade, Tomaz Tadeu da Silva apresenta as teorias crítica e pós-crítica do currículo. Com base no exposto, qual estratégia pedagógica desenvolvida com os estudantes está alinhada à teoria crítica de currículo?',
+    alternativas: [
+      'A) Pesquisa de campo e discussão sobre enfrentamento dos diversos tipos de violência no entorno escolar.',
+      'B) Elaboração de resumo e apresentação de seminários sobre desigualdades econômicas no Brasil.',
+      'C) Leitura de textos informativos e resolução de lista de exercícios com base no material didático.',
+      'D) Exibição de documentários e realização de palestras sobre bullying na escola.',
+    ]
+  },
+  '19': {
+    enunciado: 'Com base na reflexão de Ailton Krenak sobre narrativas indígenas e conhecimentos tradicionais, os professores da Educação Básica devem considerar na elaboração de um plano de ensino os conhecimentos',
+    alternativas: [
+      'A) científicos, fundamentados em uma visão eurocêntrica dos conhecimentos tradicionais locais.',
+      'B) tradicionais locais, pautados por uma visão hegemônica dos conhecimentos científicos.',
+      'C) científicos, integrados com os conhecimentos tradicionais locais.',
+      'D) tradicionais locais, subordinados aos conhecimentos científicos.',
+    ]
+  },
+  '20': {
+    enunciado: 'Uma professora explorou o movimento do cinema africano a partir de 1960 durante uma aula sobre história e cultura afro-brasileira e africana (Lei n. 10.639/2003). Os estudantes decidiram realizar uma mostra de filmes africanos. Considerando os objetivos previstos na proposta, os estudantes devem selecionar filmes que',
+    alternativas: [
+      'A) retratem os espaços físicos e a vida animal selvagem como elementos característicos do continente africano.',
+      'B) produzam a sensação de familiaridade no espectador com base nas narrativas audiovisuais europeias e americanas.',
+      'C) reconhecem as variadas formas de expressão dos povos africanos, suas subjetividades e questões sociais associadas a esses povos.',
+      'D) apresentem estereótipos relacionados a temáticas da colonização e seus impactos no modo de vida urbanizado em países africanos.',
+    ]
+  },
+  '21': {
+    enunciado: 'Uma matéria jornalística relata precariedades em escolas de assentamentos: pisos de areia e barro, ausência de banheiros, água e esgotamento sanitário. Diante da situação retratada, que ação compete à escola e contribui para o enfrentamento dessa realidade?',
+    alternativas: [
+      'A) A elaboração de um projeto com base em um diagnóstico sobre a situação da rede de água para solucionar o problema.',
+      'B) A instalação mínima de redes de água e de esgotamento sanitário nas escolas para superar as condições precárias de infraestrutura.',
+      'C) A articulação da gestão escolar com as autoridades competentes em busca de ações para melhorar a infraestrutura.',
+      'D) A convocação da comunidade escolar para proceder à despoluição de um rio do entorno.',
+    ]
+  },
+  '22': {
+    enunciado: 'Considerando os textos 1 e 2 sobre a Educação de Jovens e Adultos (EJA), a alternativa que apresenta uma ação pedagógica condizente com a abordagem sistêmica da EJA é',
+    alternativas: [
+      'A) garantir a inclusão de temas relacionados à profissionalização dos estudantes e de atividades relativas ao mundo do trabalho.',
+      'B) propor uma organização curricular que oportunize a obtenção de um diploma àquelas pessoas que não puderam frequentar a escola.',
+      'C) desenvolver projetos de letramento que integrem experiências de vida dos estudantes a temas como trabalho, identidades culturais e vivências intergeracionais.',
+      'D) elaborar uma proposta de organização curricular que assegure o cumprimento das diretrizes nacionais aos estudantes e a garantia dos mesmos conteúdos e dos mesmos métodos aplicados ao ensino regular.',
+    ]
+  },
+  '23': {
+    enunciado: 'O letramento científico representa uma competência essencial no contexto educacional. Considerando o que representa o letramento científico, a equipe gestora de uma escola planeja organizar uma palestra com o objetivo de conscientizar a comunidade escolar de que a ciência',
+    alternativas: [
+      'A) fundamenta-se no rigor metodológico como respaldo para os argumentos produzidos e apresentados publicamente.',
+      'B) respeita a liberdade individual e a livre tomada de decisão como direitos sobrepostos às escolhas coletivas.',
+      'C) permite a refutação de resultados amplamente aceitos em função de posicionamentos individuais.',
+      'D) busca a impessoalidade, a objetividade e a neutralidade, à parte de influências políticas.',
+    ]
+  },
+  '24': {
+    enunciado: 'Em uma reunião de planejamento, foi proposta uma discussão sobre os diferentes tipos de avaliação (diagnóstica, formativa e somativa). Entre as atividades avaliativas descritas, é associada à função formativa aquela que',
+    alternativas: [
+      'A) inicia o ensino de frações com uma atividade de recortes de modelos de pizzas de papel divididas em partes iguais, para que os estudantes resolvam uma lista de exercícios.',
+      'B) propõe uma série de perguntas para serem respondidas pelos estudantes sobre o tema de desmatamento ilegal, com o intuito de identificar os conhecimentos prévios dos estudantes sobre o assunto.',
+      'C) oferece devolutivas para a produção coletiva de uma linha do tempo com marcos da Revolução Industrial, a fim de orientar o que pode ser aperfeiçoado no trabalho.',
+      'D) aplica uma prova escrita com questões objetivas e dissertativas sobre os ciclos biogeoquímicos, com a finalidade de classificar os estudantes.',
+    ]
+  },
+  '25': {
+    enunciado: 'As avaliações externas em larga escala, como o Saeb, são utilizadas como instrumentos de aferição da qualidade da Educação Básica no Brasil. Uma determinada escola recebeu sua nota do Ideb abaixo da média prevista. A análise dos resultados do Ideb deve orientar as ações pedagógicas para',
+    alternativas: [
+      'A) direcionar o planejamento de forma estratégica.',
+      'B) reduzir o espaço de determinadas áreas do currículo.',
+      'C) dedicar maior atenção a conteúdos extracurriculares.',
+      'D) focalizar o desenvolvimento de habilidades socioemocionais.',
+    ]
+  },
+  '26': {
+    enunciado: 'Um estudante surdo foi incluído em uma sala de EF. A escola contratou um intérprete que adaptava e conduzia as atividades sem a participação do professor regente. Ao relacionar a situação descrita no Texto 2 com a figura do Texto 1 (inclusão vs. integração), conclui-se que está ocorrendo um processo de',
+    alternativas: [
+      'A) exclusão, pois o professor não dialoga diretamente com o estudante surdo.',
+      'B) segregação, porque a turma não consegue se comunicar com o estudante surdo.',
+      'C) inclusão, porque o estudante surdo participa regularmente das aulas com a turma.',
+      'D) integração, porque o intérprete estabelece uma relação individual com o estudante surdo.',
+    ]
+  },
+  '27': {
+    enunciado: 'Um professor propõe aos estudantes práticas pedagógicas sobre a relação entre o aumento de doenças erradicadas e o baixo índice de vacinação. Para que essa proposta promova o letramento científico, o professor deve',
+    alternativas: [
+      'A) solicitar uma pesquisa em que os estudantes façam um levantamento junto aos familiares relativo a pendências na carteira de vacinação.',
+      'B) desenvolver um projeto interdisciplinar em que os estudantes investiguem dados científicos sobre vacinação e apresentem os resultados em uma feira de ciências com a participação da comunidade escolar.',
+      'C) promover rodas de conversa em que os estudantes construam um espaço de escuta e reflexão coletiva sobre a importância do conhecimento para a tomada de decisão em relação à escolha das melhores vacinas.',
+      'D) propor uma prática pedagógica em que os estudantes tenham acesso aos materiais informativos da campanha de vacinação organizada pela Secretaria de Saúde na própria unidade escolar.',
+    ]
+  },
+  '28': {
+    enunciado: 'Um professor do Ensino Médio apresentou dados do Relatório "Em direção à equidade de gênero no Brasil" sobre a participação de mulheres em publicações científicas (enfermagem 80%, matemática 19%). A proposta pedagógica que representa uma ação do professor para estimular a equidade de gênero nas áreas do conhecimento é',
+    alternativas: [
+      'A) pautar as avaliações escolares em práticas meritocráticas para neutralizar tentativas de favorecimento por questões de gênero.',
+      'B) analisar os dados com o intuito de promover investigações sobre a falta de representatividade feminina em áreas de exatas.',
+      'C) utilizar os dados para reforçar que as escolhas profissionais são determinadas por aptidões naturais distintas.',
+      'D) promover olimpíadas científicas escolares para motivar a competição entre meninas e meninos.',
+    ]
+  },
+  '29': {
+    enunciado: 'Um professor do Ensino Médio propôs uma roda de conversa, utilizando uma charge como recurso mobilizador para a discussão sobre os impactos das ações afirmativas (revisão da Lei n. 12.711/2012). A atividade proposta pelo professor possibilita ao estudante',
+    alternativas: [
+      'A) reconhecer as ações afirmativas previstas em lei desvinculadas do processo histórico de formação do povo brasileiro.',
+      'B) compreender as ações afirmativas previstas em lei como uma conquista democrática decorrente da mobilização social.',
+      'C) constatar a neutralidade dos meios de comunicação em relação ao racismo estrutural e às ações afirmativas.',
+      'D) entender o debate sobre as ações afirmativas como garantia da superação da discriminação racial.',
+    ]
+  },
+  '30': {
+    enunciado: 'Com base no texto sobre racismo religioso e religiões de matrizes africanas no contexto escolar (Nascimento, 2017), é correto afirmar que a',
+    alternativas: [
+      'A) abordagem da religião e da cultura iorubanas em sala de aula permite que professores e estudantes reflitam sobre os efeitos das violências materiais e simbólicas na sociedade.',
+      'B) apresentação de conteúdos vinculados às religiões de matrizes africanas e a valorização do diálogo na resolução de conflitos nas escolas buscam uma identidade comum a todos os estudantes.',
+      'C) concepção do ambiente escolar como espaço de convívio religioso distancia-se da função social da educação, que deve focalizar conhecimentos gerais, formação disciplinar e cidadania.',
+      'D) utilização de trechos da mitologia africana nas aulas de ensino religioso cumpre o prescrito na lei que trata do ensino da história iorubana e indígena.',
+    ]
+  },
+  '31': {
+    enunciado: 'A BNCC identifica o campo artístico-literário como um dos eixos a serem contemplados em Língua Portuguesa e menciona os cordéis como recursos a serem utilizados pelos professores. Uma prática de ensino e de aprendizagem que incide sobre o letramento com base nos cordéis envolve a',
+    alternativas: [
+      'A) cópia de ilustrações e da estrutura gramatical de textos de cordéis.',
+      'B) identificação de rimas e de aliterações por meio da leitura e da escuta de textos de cordéis.',
+      'C) compreensão dos usos sociais de textos de cordéis.',
+      'D) identificação de elementos fonéticos e gramaticais de textos de cordéis.',
+    ]
+  },
+  '32': {
+    enunciado: 'Considerando o potencial educativo do cordel, uma professora pretende inseri-lo como recurso pedagógico em seu planejamento de ensino de História nos Anos Iniciais. As atividades que desenvolvem os fundamentos teórico-metodológicos do ensino de História são',
+    alternativas: [
+      'A) reescrever cordéis e orientar um debate sobre a temática O mundo da tecnologia, comparando texto digital e texto impresso.',
+      'B) classificar os diferentes tipos de cordéis e produzir uma lista com os personagens retratados.',
+      'C) reproduzir cordéis e confeccionar um mural temático, ilustrando as suas principais partes.',
+      'D) abordar a temática Patrimônios históricos e orientar a produção de cordéis para serem utilizados como registros culturais.',
+    ]
+  },
+  '33': {
+    enunciado: 'Em seu planejamento, uma professora de Anos Iniciais utilizou o cordel para explorar conhecimentos específicos de Artes. Ela realizou uma sequência didática com o objetivo de desenvolver as diferentes unidades temáticas previstas na BNCC para a área: música, teatro, artes visuais e dança. O conjunto de atividades que contempla as quatro unidades temáticas é',
+    alternativas: [
+      'A) soletração de trechos do cordel, ilustração de trechos da história, organização de sarau e jogral literários.',
+      'B) exibição de vídeos de cordéis cantados, pesquisa biográfica de autores cordelistas, interpretação e dramatização de trechos do cordel.',
+      'C) rodas de conversa, identificação de rimas, leitura e interpretação de trechos de cordéis.',
+      'D) visita a uma exposição de cordéis, leitura e canto de algumas estrofes e dramatização com coreografia de trechos do cordel.',
+    ]
+  },
+  '34': {
+    enunciado: 'Uma professora de Anos Iniciais usou o cordel para consolidar a alfabetização e o letramento, articulado à unidade temática de Geografia "O sujeito e seu lugar no mundo". Com o desenvolvimento dessa unidade temática, espera-se que os estudantes',
+    alternativas: [
+      'A) compreendam as atividades socioeconômicas e os processos produtivos culturais, gerando a reflexão sobre as mudanças no setor artístico, por meio da comparação de diferentes gêneros textuais.',
+      'B) articulem diferentes tempos históricos, possibilitando a compreensão das relações entre indivíduos, por meio da descrição cartográfica das regiões, dos espaços e de suas respectivas manifestações culturais.',
+      'C) ampliem a leitura de mundo, favorecendo a representação mental das diferentes regiões, por meio do estudo das coordenadas geográficas registradas em uma linha do tempo.',
+      'D) fortaleçam o sentimento de pertencimento, identificando-se com a sua comunidade e respeitando os diferentes contextos socioculturais, por meio do reconhecimento das diversas manifestações culturais.',
+    ]
+  },
+  '35': {
+    enunciado: 'O Círio de Nazaré, celebrado anualmente em Belém do Pará e reconhecido como Patrimônio Cultural da Humanidade pela Unesco, constitui um exemplo de fenômeno geográfico complexo. Considerando os fundamentos teórico-metodológicos para o ensino de Geografia nos Anos Iniciais, as estratégias pedagógicas coerentes para trabalhar esse tema com os estudantes são',
+    alternativas: [
+      'A) desenvolver uma pesquisa sobre as coordenadas geográficas, reconhecer e memorizar as características do território urbano onde ocorre o Círio, compreendendo como o espaço físico determina práticas culturais.',
+      'B) utilizar uma linha do tempo para localizar Belém e identificar o trajeto da procissão do Círio, promovendo descrições históricas sobre os símbolos envolvidos no evento.',
+      'C) apresentar o conceito de consciência fonológica, relacionando-o a práticas culturais significativas, como o Círio de Nazaré, e incentivar pesquisas bibliográficas de sua relevância histórica e geográfica.',
+      'D) realizar atividades para explorar a realidade e as vivências sobre o Círio, analisando-o como arranjo espacial produzido por relações sociais, e compreender sua lógica em diferentes escalas com o uso de cartografia e de outras linguagens.',
+    ]
+  },
+  '36': {
+    enunciado: 'Um professor que atua nos Anos Iniciais utiliza o texto jornalístico sobre o Círio de Nazaré como recurso didático para o desenvolvimento da linguagem escrita em contextos significativos. Para alcançar esse objetivo, ele irá',
+    alternativas: [
+      'A) promover conversas em grupo sobre o tema do texto, realizar sua leitura ou utilizar sua estrutura na produção escrita, com o objetivo de respeitar o tempo natural de aquisição da escrita pelos estudantes.',
+      'B) organizar atividades integradas de leitura, oralidade, escrita e análise reflexiva e contextual, articulando a exploração do conteúdo cultural do Círio e a sua relevância para o contexto local, nacional e internacional.',
+      'C) utilizar o texto para leitura silenciosa seguida de cópia de trechos, com ênfase em aspectos caligráficos e ortográficos, priorizando a fixação de formas gráficas.',
+      'D) trabalhar o texto como apoio para análise de figuras de linguagem e estruturas gramaticais, com foco nos elementos formais da língua, analisando-os de forma abstrata.',
+    ]
+  },
+  '37': {
+    enunciado: 'Uma professora do 5º ano propôs uma aula-passeio ao parque municipal. O grupo 1 ficou responsável por realizar o mapeamento do parque. A professora propôs a produção coletiva de uma maquete. Com essa proposição, foi possível aos estudantes',
+    alternativas: [
+      'A) identificar formas geométricas planas e espaciais, estabelecer noções de proporção e de escala e representar o espaço observado.',
+      'B) reconhecer símbolos cartográficos presentes nas sinalizações do parque e interpretar as instruções que indicam os trajetos a serem percorridos pelos frequentadores.',
+      'C) utilizar as quatro operações matemáticas para preencher tabelas com os gastos com transporte e com alimentação relacionados à visita ao parque.',
+      'D) calcular probabilidades de ocorrência do uso de diferentes trajetos do parque e quantificar as formas geométricas utilizadas na representação do local.',
+    ]
+  },
+  '38': {
+    enunciado: 'O grupo 2 registrou os elementos naturais e artificiais do parque. A professora propôs uma atividade sobre as relações ecológicas desse ecossistema. Com essa proposição, foi possível aos estudantes',
+    alternativas: [
+      'A) reconhecer a cadeia alimentar dos seres vivos do parque, compreendendo sua relação com a vida cotidiana dos frequentadores, por meio de uma abordagem com base em projetos.',
+      'B) identificar os ciclos da água e do carbono presentes no parque e sua relação com o funcionamento do ambiente, por meio de observação dirigida e de atividades integradoras.',
+      'C) compreender a relação existente entre os componentes bióticos e abióticos do parque, identificando a ação humana e as espécies que vivem juntas, com base no estudo do meio.',
+      'D) analisar os impactos da poluição visual e sonora no parque e sua relação com a saúde, por meio de pesquisas dirigidas na internet, de infográficos e de rodas de conversa.',
+    ]
+  },
+  '39': {
+    enunciado: 'O grupo 3 contemplou o reconhecimento de diferentes corporeidades. A professora propôs a criação de cenas teatrais que representassem jogos e brincadeiras observados no parque. Considerando os fundamentos teórico-metodológicos da Educação Física nos Anos Iniciais, a proposta desenvolvida pela professora',
+    alternativas: [
+      'A) valoriza a ludicidade e reconhece jogos e brincadeiras como manifestações da cultura corporal que contribuem para o desenvolvimento da corporeidade.',
+      'B) valoriza o lazer, os esportes, a competitividade e reconhece a importância de suas regras e seus fundamentos na rotina escolar.',
+      'C) estimula a oralidade e reconhece jogos e brincadeiras como padrões de desempenhos corporais próprios da escolarização.',
+      'D) estimula a criatividade e reconhece jogos e brincadeiras como práticas esportivas advindas das matrizes europeia e asiática.',
+    ]
+  },
+  '40': {
+    enunciado: 'Considerando a perspectiva interdisciplinar desenvolvida na aula-passeio ao parque, a aula-passeio',
+    alternativas: [
+      'A) viabilizou a aplicação prática de conhecimentos em um contexto real e tangível, facilitando o entendimento dos conceitos de diferentes disciplinas e a memorização por meio da interação direta com o ambiente do parque.',
+      'B) permitiu a diversificação dos temas abordados pelos grupos, explorando um aspecto específico do parque, garantindo a classificação dos saberes de diferentes áreas e minimizando a conexão complexa dos conteúdos curriculares.',
+      'C) oportunizou a pesquisa e o acesso a múltiplas áreas do conhecimento que se conectaram em torno de uma situação real, promovendo a construção significativa e a relação entre os saberes em um contexto de aprendizagem.',
+      'D) estimulou a vivência de experiências variadas, explorando o ambiente de forma livre e criativa, desenvolvendo a autonomia individual e a interação social, e organizando os conteúdos de forma disciplinar.',
+    ]
+  },
+  '41': {
+    enunciado: 'A música Amoras (Emicida) destaca o olhar infantil sobre a identidade, a representatividade e o afeto. No verso "Papai que bom, porque eu sou pretinha também". Considerando a música como prática literária e recurso pedagógico na Educação Infantil, a proposta',
+    alternativas: [
+      'A) trabalha a canção como estímulo à oralidade e à imaginação, explorando os versos por meio da escuta, da conversa e da dramatização, com mediação do professor, favorecendo a articulação com a escrita alfabética de letra cursiva.',
+      'B) explora experiências para valorizar o reconhecimento das diversidades, favorecendo a construção de sentidos sobre identidade e pertencimento.',
+      'C) desenvolve atividades de exploração rítmica e de expressão corporal, favorecendo o uso de múltiplas linguagens e de tecnologias na classificação de níveis de aprendizagem.',
+      'D) utiliza a canção para inspirar produções escritas, visuais e sonoras, favorecendo experiências estéticas, com intervenções do professor na promoção de um modelo de aprendizagem.',
+    ]
+  },
+  '42': {
+    enunciado: 'Ao planejar uma aula com a música Amoras (Emicida), com o objetivo de reconhecer e valorizar a identidade negra, o pedagogo na Educação Infantil deve',
+    alternativas: [
+      'A) oferecer a música como parte de um ambiente rico em estímulos visuais, permitindo que as crianças explorem livremente seus significados, respeitando seu ritmo, com foco em suas interpretações pessoais.',
+      'B) utilizar a letra da música como apoio para atividades de sensibilização fonológica, trabalhando elementos como rimas e repetição, de modo a contribuir para o resgate da história e da cultura afro-brasileira.',
+      'C) promover a escuta da música como ponto de partida para momentos de expressão artística e lúdica, incentivando a criatividade infantil em propostas que incluam desenho, dança e dramatização espontânea.',
+      'D) desenvolver atividades que articulem os temas da música com o contexto social e cultural das crianças, promovendo a formação de conceitos sobre ancestralidade e pertencimento.',
+    ]
+  },
+  '43': {
+    enunciado: 'Uma professora da Educação Infantil apresentou Amoras como ponto de partida de uma proposta pedagógica embasada na ludicidade. As crianças dramatizaram cenas com tecidos coloridos, criaram movimentos corporais expressivos e fizeram desenhos em grupos. Essa prática exemplifica uma ação pedagógica que favorece a ludicidade ao',
+    alternativas: [
+      'A) estimular o desenvolvimento de habilidades linguísticas e motoras por meio da repetição rítmica e da reprodução coreográfica de elementos da música, focalizando a memorização e a disciplina corporal.',
+      'B) utilizar manifestações culturais como suporte para a construção de atividades lúdicas espontâneas, evitando a interferência docente e priorizando a liberdade total da criança em suas escolhas expressivas.',
+      'C) integrar expressão corporal, afetividade e imaginação em um ambiente planejado, concebendo o brincar como intencionalmente mediado para favorecer a reelaboração subjetiva das experiências vividas.',
+      'D) priorizar o ensino da diversidade cultural com base na análise dos personagens históricos mencionados na canção, orientando a criança na identificação de conceitos sociopolíticos por meio da escuta crítica.',
+    ]
+  },
+  '44': {
+    enunciado: 'Durante uma sequência didática com turmas da EJA, um professor apresenta o cordel "O fiscal e a lagarta" como ponto de partida para abordar temas como função social do Estado, cidadania e crítica social. A proposta pedagógica descrita exemplifica uma prática que',
+    alternativas: [
+      'A) explora a literatura de cordel como suporte para a prática da escrita formal, reforçando o domínio da norma-padrão e a preservação da tradição oral.',
+      'B) utiliza tecnologias como meio para explorar diferentes gêneros textuais com foco na fruição estética e na gramática, considerando o contato com as obras em suas dimensões literária e artística.',
+      'C) incentiva a leitura interpretativa do cordel com apoio de recursos digitais, considerando a memorização do conteúdo original como forma de apresentar o aprendizado.',
+      'D) valoriza a diversidade de linguagens e mídias como instrumentos complementares à leitura literária, promovendo a autoria e a compreensão crítica por meio do uso das tecnologias.',
+    ]
+  },
+  '45': {
+    enunciado: 'Com base no cordel "O fiscal e a lagarta", que faz uso do humor para realizar críticas à cobrança de impostos e à exploração do trabalhador, um professor da EJA decide utilizá-lo como ponto de partida para uma aula de Matemática. A abordagem que promove uma aprendizagem crítica e significativa deve',
+    alternativas: [
+      'A) focalizar a estrutura poética do cordel para ensinar métricas e rimas, relacionando-as com padrões numéricos.',
+      'B) desenvolver atividades com cálculos de impostos, relacionando-os com a realidade e promovendo debate sobre justiça fiscal.',
+      'C) utilizar o cordel como recurso introdutório para exercitar as quatro operações fundamentais, com base em situações hipotéticas inspiradas na narrativa.',
+      'D) propor exercícios envolvendo o cálculo de impostos com foco na aplicação de fórmulas matemáticas, com exemplos semelhantes aos da literatura de cordel.',
+    ]
+  },
+  '46': {
+    enunciado: 'Considerando os desafios do ensino de História e de Geografia na EJA e a importância do uso de diferentes linguagens e tecnologias, ao planejar uma aula utilizando o cordel, o professor deve',
+    alternativas: [
+      'A) elaborar uma atividade de colagem em que os estudantes montem painéis visuais com imagens que representem as cenas do texto, destacando a organização estética das produções para exposição em sala.',
+      'B) promover debates sobre carga tributária e desigualdades sociais e regionais, utilizando recursos digitais para relacionar os conteúdos históricos e geográficos à realidade dos estudantes.',
+      'C) organizar a dramatização do cordel com foco na interpretação artística e na reprodução do texto original, considerando a memorização dos diálogos e a entonação correta das falas.',
+      'D) realizar a leitura coletiva do cordel, seguida da análise de dados sobre a arrecadação de impostos por estado, com o uso de mapas físicos e políticos, a fim de desenvolver habilidades técnicas de localização e de leitura cartográfica.',
+    ]
+  },
+  '47': {
+    enunciado: 'Uma professora de Anos Iniciais utiliza a letra da música Sabiá (Luiz Gonzaga e Zé Dantas) para explorar sentimentos de saudade e de pertencimento. Ao realizar um trabalho interdisciplinar, a professora tem como objetivos de aprendizagem',
+    alternativas: [
+      'A) compreender o sentido literal da palavra "sabiá"; identificar rimas ao final dos versos; e reescrever a música substituindo os animais por outros da fauna brasileira.',
+      'B) refletir sobre o sentimento de saudade e os vínculos afetivos com lugares de origem; valorizar a diversidade de paisagens brasileiras; e expressar experiências de pertencimento por meio de diferentes linguagens (oral, escrita, artística).',
+      'C) memorizar a letra da música para apresentação em grupo; reproduzir oralmente a canção com entonação adequada; e classificar substantivos e adjetivos.',
+      'D) analisar tecnicamente a construção poética do texto; identificar elementos biográficos do autor; e utilizar a música para ilustrar figuras de linguagem.',
+    ]
+  },
+  '48': {
+    enunciado: 'Uma professora de Anos Iniciais utiliza a letra da música Sabiá para explorar a relação entre o sujeito, o espaço e suas vivências. A intenção da professora é realizar um trabalho interdisciplinar. Os conteúdos que devem compor o seu plano de aula são',
+    alternativas: [
+      'A) sentimento de pertencimento e memória afetiva; características de aves brasileiras; produção de textos narrativos e poéticos sobre o lugar de origem.',
+      'B) classificação gramatical das palavras da música; estudo da estrutura métrica e da rítmica; formação de palavras derivadas.',
+      'C) técnicas de canto e afinação vocal; estudo da música nordestina; análise de elementos rítmicos em letras de canções.',
+      'D) pontuação e uso de pronomes; identificação de sujeitos ocultos; tipos de predicado em textos poéticos.',
+    ]
+  },
+  '49': {
+    enunciado: 'Uma professora de Anos Iniciais utiliza a letra da música Sabiá, que traz elementos que possibilitam explorar atividades interdisciplinares, envolvendo linguagem, memória, natureza e identidade cultural. Os procedimentos metodológicos que atendem a essas quatro dimensões são',
+    alternativas: [
+      'A) leitura compartilhada da música, com ênfase na entonação e no ritmo; ditado de palavras-chave da canção para trabalhar ortografia; discussão oral sobre o significado de expressões presentes na letra.',
+      'B) escuta atenta da música, seguida de roda de conversa sobre sentimentos e imagens despertadas; desenho do "lugar onde mora o sabiá" com base em observações e em referências culturais; produção coletiva de textos curtos sobre lugares que causam saudade.',
+      'C) leitura individual com orientação para entonação expressiva; identificação e pesquisa de palavras novas no texto; reescrita coletiva da música, incentivando o uso de conectivos e de frases explicativas.',
+      'D) cópia da letra da música para identificar rimas e aliterações; pesquisa sobre cantores tradicionais do Nordeste; confecção de mural com imagens e textos relacionados a Luiz Gonzaga e sua obra.',
+    ]
+  },
+  '50': {
+    enunciado: 'A canção Sabiá oferece múltiplas possibilidades de trabalho interdisciplinar nos Anos Iniciais. Considerando os princípios da avaliação formativa, os procedimentos avaliativos coerentes com essa abordagem são',
+    alternativas: [
+      'A) elaboração de perguntas objetivas sobre aspectos centrais da canção para aplicação em pequenos grupos; avaliação da leitura em voz alta com foco na entonação e na expressividade; correção das produções escritas com destaque para erros ortográficos mais recorrentes.',
+      'B) registros descritivos da participação em rodas de conversa e atividades de escuta e de criação; portfólio com desenhos e com textos inspirados na música e nos sentimentos que ela despertou; autoavaliação com base em perguntas abertas: "O que senti?", "O que aprendi?", "Com quem compartilhei isso?".',
+      'C) produção de uma linha do tempo sobre a vida do compositor com auxílio de materiais complementares; classificação das rimas da canção com base em critérios predefinidos; avaliação das produções textuais com base na organização das ideias e na presença de informações relevantes.',
+      'D) confecção de um portfólio com palavras desconhecidas, a partir da letra da música; prova objetiva com foco na musicalidade e nas emoções evocadas pelo texto; análise da letra para identificação de recursos linguísticos e estilísticos.',
+    ]
+  },
+  '51': {
+    enunciado: 'Uma criança de 10 anos com paralisia cerebral é estudante do 4º ano e sempre teve atendimento educacional especializado. No contexto da educação inclusiva, discute-se o uso da tecnologia assistiva. Considerando o desenvolvimento da escrita desse estudante, a utilização de recursos de tecnologia assistiva deve incluir',
+    alternativas: [
+      'A) os recursos tecnológicos disponibilizados desde seu ingresso na educação inclusiva, incluindo tablets, celulares e computadores para dispensar o uso do lápis em atividades de escrita.',
+      'B) a comunicação alternativa e ampliada, uma tecnologia assistiva classificada como "baixa tecnologia", utilizada desde o início de seu ingresso na educação inclusiva, dispensando a prática da escrita com lápis para expressar suas ideias.',
+      'C) o apoio de uma equipe multidisciplinar junto ao atendimento educacional especializado para priorizar os registros escritos, tendo em vista as limitações da tecnologia para o processo de alfabetização.',
+      'D) o teclado programável, por ser possível ajustá-lo conforme a sensibilidade ao toque, evitando repetições ou digitação de letras indesejadas, ao longo do processo de alfabetização.',
+    ]
+  },
+  '52': {
+    enunciado: 'Uma escola municipal de Educação Infantil atende uma criança de 5 anos com TEA (nível 2, não verbal). O professor pode se valer das TICs. Considerando as especificidades da criança e da legislação vigente, cabe ao atendimento educacional especializado elaborar um',
+    alternativas: [
+      'A) plano de desenvolvimento individual em conjunto com os responsáveis legais e com a equipe pedagógica multidisciplinar, utilizando equipamentos e recursos das TICs que auxiliem na comunicação da criança.',
+      'B) plano de ensino, conforme preconiza o PPP da escola, em conjunto com a professora regente, utilizando TICs que estimulem a vocalização.',
+      'C) plano de desenvolvimento individual em conjunto com a professora regente, incluindo atividades de vocalização, respeitando o interesse dos responsáveis legais na tomada de decisões.',
+      'D) plano de ensino, conforme preconiza o PPP, incluindo recursos de alta e baixa tecnologia, objetivando estimular a vocalização e a realização de atividades sem a participação dos responsáveis legais.',
+    ]
+  },
+  '53': {
+    enunciado: 'Uma escola de Anos Iniciais recebe um estudante com deficiência visual congênita que frequenta o 3º ano e faz uso de tecnologia assistiva em sala de aula. Considerando que esse estudante apresenta autonomia no uso de recursos de tecnologia assistiva, é correto afirmar que o atendimento educacional especializado atua na',
+    alternativas: [
+      'A) função principal de auxiliar o professor regente no processo de ensino e aprendizagem, com foco especial no uso da máquina de escrever em Braille, bem como acompanhando o estudante em todas as aulas.',
+      'B) garantia da participação do estudante na sociedade e na escola, eliminando barreiras físicas, comunicacionais, de aprendizagem, bem como disponibilizando recursos de acessibilidade a serem utilizados nas atividades escolares.',
+      'C) facilitação da comunicação em Libras entre o estudante e a comunidade escolar como um todo, representando uma ponte comunicativa entre a Libras e a Língua Portuguesa.',
+      'D) gestão educacional da escola, garantindo que o processo de ensino e aprendizagem esteja alinhado com as diretrizes educacionais e que a instituição ofereça um ambiente propício ao desenvolvimento do estudante.',
+    ]
+  },
+  '54': {
+    enunciado: 'Um estudante surdo com 10 anos, matriculado no 5º ano, não tem fluência em Libras nem proficiência em Língua Portuguesa. Recebe atendimento educacional especializado bilíngue (Lei n. 14.191/21). Para a total inclusão desse estudante, são necessários, no atendimento educacional especializado bilíngue,',
+    alternativas: [
+      'A) a escrita de sinais e a datilologia, o uso de tecnologia assistiva para estudantes surdos, abordando Libras e Português, e a valorização da identidade e cultura surdas.',
+      'B) Libras-Português, o envolvimento dos pais no uso da Libras, o foco para atender às especificidades linguísticas dos estudantes surdos, a utilização das tecnologias assistivas bilíngues Libras-Português, e a valorização das identidades e das especificidades de sua língua e cultura.',
+      'C) Libras-Sinalização, a presença do tradutor-intérprete de Libras-Português para suprir a presença dos pais na comunicação familiar e o uso de tecnologias para o ensino de Português como primeira língua para o domínio da escrita.',
+      'D) o tradutor-intérprete, a sala multifuncional equipada com material de tecnologia assistiva bilíngue Libras-Português, a presença obrigatória de professores surdos de Libras e de tradutores-intérpretes de Libras-Português, e o envolvimento da família na comunicação em Libras.',
+    ]
+  },
+  '55': {
+    enunciado: 'Em uma turma de Anos Iniciais composta por 25 estudantes, três apresentam TEA com atendimento educacional especializado. A professora busca desenvolver habilidades sociais por meio de tecnologia assistiva. Um trabalho pedagógico voltado para o desenvolvimento das habilidades sociais com base na utilização de recursos de tecnologia assistiva e das TICs, sobretudo com estudantes com TEA, deve priorizar o(a)',
+    alternativas: [
+      'A) utilização de recursos como edição facilitada, correção automática, visualização em tela e de recursos para facilitar a escrita para quem tem dificuldades com a caligrafia; softwares de conversão de fala em texto; teclados adaptados, softwares de organização e planificação.',
+      'B) uso de brinquedos que estimulam os sentidos, como blocos de construção, bolhas de sabão e brinquedos de borracha, possibilitando explorar diferentes sensações e melhorar a propriocepção.',
+      'C) organização do espaço escolar com elementos visuais, como agendas e horários, ajudando a reduzir a ansiedade e facilitando a disciplina da turma; jogos educativos adaptados como ferramenta lúdica.',
+      'D) exploração de ferramentas digitais para promover a inclusão e o desenvolvimento pessoal e social; aplicativos de comunicação com jogos que simulam situações sociais, auxiliando no reconhecimento de sinais, como expressões faciais e tom de voz.',
+    ]
+  },
+  '56': {
+    enunciado: 'Considerando os dados do Ideb 2023 do estado de Sergipe e os pressupostos da avaliação de larga escala, é correto afirmar que',
+    alternativas: [
+      'A) as avaliações de larga escala fornecem resultados padronizados do desempenho individual dos estudantes no processo avaliativo. Sergipe alcançou índices que mostram uma considerável queda no desempenho dos estudantes do Ensino Médio.',
+      'B) o Ideb é um instrumento de avaliação externa que mede o desempenho dos estudantes das redes públicas de ensino de todo o país. Os estudantes sergipanos dos Anos Iniciais tiveram resultados muito satisfatórios, alcançando um nível de proficiência 0,1 ponto superior à média nacional.',
+      'C) as avaliações de larga escala permitem mapear informações importantes para a análise comparativa do desempenho dos estudantes. Em Sergipe, os dados acumulados demonstram uma evolução positiva, com o aumento da média no Ensino Fundamental em comparação aos dados de 2021.',
+      'D) o Ideb é calculado a partir das avaliações externas aplicadas em cada sistema de ensino. Em Sergipe, os dados são obtidos a partir dos testes aplicados anualmente pelo Saese e apontam a estagnação dos índices de desempenho desde 2021.',
+    ]
+  },
+  '57': {
+    enunciado: 'Uma escola com Ideb de 2,9 nos Anos Finais do EF decidiu adequar seu currículo ao padrão dos testes e definir uma rotina de exames mensais. A prática passou a assumir características de treinamento e os professores perderam a autonomia. A equipe pedagógica demonstrou aderir à racionalidade técnica na avaliação quando',
+    alternativas: [
+      'A) utilizou os dados divulgados pelo Inep para analisar os fatores que influenciam o desempenho dos estudantes e para elaborar uma proposta de intervenção pedagógica com base no diagnóstico da sua realidade.',
+      'B) analisou criticamente a sua proposta pedagógica e, ao constatar a discrepância do Ideb do município em relação ao índice do estado, buscou compreender se os currículos praticados na escola apresentam equivalência com as habilidades e as competências avaliadas.',
+      'C) priorizou o aspecto quantitativo da avaliação, ao centrar os seus esforços em transformar o currículo dos Anos Finais do EF em instrumento para garantir o ensino dos conteúdos que são avaliados nos testes, gerando o empobrecimento curricular e uma visão tecnicista da educação.',
+      'D) resgatou os dados do Ideb para investigar as causas das disparidades no desempenho dos estudantes no estado e formular alternativas de ações, conferindo autonomia aos professores na tomada de decisões.',
+    ]
+  },
+  '58': {
+    enunciado: 'O Saeb é um conjunto de avaliações de larga escala aplicado aos estudantes do 2º, do 5º e do 9º ano do EF e da 3ª série do EM. Considerando os dados do Saeb e tendo como objetivo melhorar os níveis de proficiência de leitura do 5º ano, os professores de uma escola pública decidiram',
+    alternativas: [
+      'A) intensificar o trabalho pedagógico com o uso de diferentes portadores de textos e gêneros textuais.',
+      'B) priorizar o ensino de ortografia e de gramática a partir da produção de textos escritos.',
+      'C) utilizar atividades lúdicas e metodologias ativas, para que os estudantes desenvolvam a oralidade.',
+      'D) aplicar provas mensais e formar turmas de recuperação, para que os estudantes superem eventuais dificuldades.',
+    ]
+  },
+  '59': {
+    enunciado: 'Mediante os resultados do Ideb, a equipe gestora assume a responsabilidade de conduzir a discussão dos resultados. Considerando a fórmula de cálculo do Ideb, é correto afirmar que a gestão da escola tem como foco a qualidade do ensino, quando',
+    alternativas: [
+      'A) toma medidas para a promoção automática dos estudantes para elevar a taxa de aprovação, independentemente dos processos de ensino e da avaliação de aprendizagem.',
+      'B) promove ações de incentivos e premiações para os estudantes que alcançarem as maiores notas nas avaliações somativas que testam a proficiência, com base na matriz de referência do Saeb.',
+      'C) destina maior carga horária semanal às disciplinas Língua Portuguesa e Matemática, reduzindo as horas de aulas das disciplinas que não são avaliadas nos testes de larga escala.',
+      'D) reavalia periodicamente a proposta pedagógica e monitora o desempenho dos estudantes, atuando de forma propositiva e colaborativa no combate à evasão e na formação continuada dos professores.',
+    ]
+  },
+  '60': {
+    enunciado: 'A pedagoga de uma instituição de acolhimento foi chamada para mediar situações sexistas, onde um adolescente era alvo de bullying por realizar atividades domésticas. Ela organizou uma roda de conversa sobre papéis de gênero. O objetivo da estratégia utilizada pela pedagoga foi',
+    alternativas: [
+      'A) desenvolver metodologias diretivas para os adolescentes, pois eles estão em uma situação de vulnerabilidade social que limita o desenvolvimento da autonomia e a criticidade para lidar com problemas complexos.',
+      'B) mediar a discussão, para que os adolescentes possam expor as inquietações, as dúvidas e os conhecimentos, refletindo criticamente e desenvolvendo autonomia nas possíveis formas de resolução da situação-problema.',
+      'C) promover metodologias ativas, como roda de conversa, para evitar conflitos e tensões, de forma a facilitar a convivência harmoniosa, baseada na pacificação das diferenças.',
+      'D) assumir o protagonismo da situação, coordenando a roda de conversa e explicando aos adolescentes sobre a importância de uniformizar as características e as habilidades de cada pessoa do grupo.',
+    ]
+  },
+  '61': {
+    enunciado: 'Na instituição de acolhimento, adolescentes tendem a compartilhar, sem reflexão crítica, informações falsas (fake news) que circulam nas redes sociais. Ao estabelecer uma proposta pedagógica de enfrentamento às fake news, a pedagoga da instituição reconhece que',
+    alternativas: [
+      'A) a propagação de fake news no ambiente da instituição reflete as diferentes culturas, promove a pesquisa sobre as informações divulgadas em busca do conhecimento e da valorização da diversidade presente nas redes sociais.',
+      'B) a reprodução de fake news pelos adolescentes reflete uma prática de alteridade na interação respeitosa com o outro.',
+      'C) as fake news se tornam especialmente perigosas ao divulgarem opiniões e valores particulares ou de um grupo específico, tornando-se referência como verdade, em que os demais grupos passam a pensar com base nesses valores, hábitos e costumes.',
+      'D) os adolescentes, ao compartilharem fake news, agem a partir do relativismo cultural, reconhecendo que todas as práticas culturais, inclusive os discursos que discriminam e hierarquizam determinados grupos, devem ser preservadas em favor da convivência democrática.',
+    ]
+  },
+  '62': {
+    enunciado: 'Uma pedagoga recém-empossada pretende implementar práticas que promovam uma gestão democrática. Com base no contexto descrito e na necessidade de adotar práticas embasadas na Pedagogia como ciência da prática educativa, as ações que refletem os objetivos pretendidos pela pedagoga são',
+    alternativas: [
+      'A) desenvolver um projeto de formação continuada que impulsione a reflexão crítica sobre a prática, o diálogo entre teoria e prática e a construção coletiva de soluções inovadoras e contextualizadas.',
+      'B) implementar um modelo de gestão que enfatize a colaboração entre professores e estudantes, priorizando o desenvolvimento de um ambiente escolar inclusivo e participativo no qual a administração atue de forma uniformizada.',
+      'C) estimular os coordenadores a assumirem a responsabilidade pela resolução dos problemas da escola, confiando em sua capacidade de encontrar soluções adequadas para os desafios.',
+      'D) direcionar os esforços para criar um ambiente centralizado que envolva a comunidade escolar em eventos e em atividades, buscando maior reconhecimento e valorização local.',
+    ]
+  },
+  '63': {
+    enunciado: 'Ao considerar o processo de elaboração do PPP, com base em uma postura investigativa e científica na comunidade escolar, a pedagoga deve',
+    alternativas: [
+      'A) contratar uma consultoria especializada para elaborar o PPP, buscando agilizar o processo e garantir a qualidade técnica do documento, com a colaboração da equipe gestora da escola municipal.',
+      'B) adaptar o PPP de uma escola-modelo, buscando otimizar o tempo e os recursos na elaboração do documento, por meio de uma análise da realidade e das necessidades locais.',
+      'C) promover um diagnóstico participativo que envolva os diversos segmentos da comunidade escolar, buscando identificar problemas e potencialidades, por meio de instrumentos como entrevistas, questionários e reuniões com os diferentes atores.',
+      'D) elaborar o PPP com base no controle da equipe gestora, buscando assegurar a coerência e a objetividade do plano de ação, com a contribuição dos demais membros da escola municipal.',
+    ]
+  },
+  '64': {
+    enunciado: 'Considerando a implementação da gestão democrática e a crescente disseminação de fake news na comunidade escolar, a estratégia a ser implementada pela pedagoga é',
+    alternativas: [
+      'A) desenvolver um projeto de letramento midiático, preparando a comunidade escolar para identificar e combater as notícias falsas por meio de verificação, análise crítica e produção de conteúdo informativo.',
+      'B) implementar diretrizes precisas para a coibição das tecnologias digitais na escola, visando promover um ambiente virtual mais seguro e produtivo para o aprendizado e a interação cidadã.',
+      'C) proibir campanhas de conscientização sobre os riscos das notícias falsas, buscando sensibilizar toda a comunidade escolar sobre a importância de verificar as informações antes de compartilhá-las.',
+      'D) estimular o debate sobre o papel da inteligência artificial, possibilitando desenvolver o pensamento homogêneo e a capacidade de análise dos estudantes a partir de aula expositiva.',
+    ]
+  },
+  '65': {
+    enunciado: 'A tirinha de Quino apresenta um diálogo em que Manolito afirma que os valores econômicos são mais importantes do que os valores morais, espirituais, artísticos ou humanos. Considerando o conteúdo da tirinha e as diferentes teorias e concepções de currículo, as práticas curriculares devem, na perspectiva crítica,',
+    alternativas: [
+      'A) priorizar competências empreendedoras, com foco no retorno econômico e na inserção no mercado de trabalho.',
+      'B) problematizar visões utilitaristas, com foco na valorização da diversidade social e na promoção da transformação da realidade existente.',
+      'C) organizar conteúdos de forma objetiva e padronizada, garantindo acesso igualitário ao saber escolar tradicional.',
+      'D) considerar os contextos e as subjetividades dos sujeitos, transmitindo saberes que sustentem a ordem social vigente.',
+    ]
+  },
+  '66': {
+    enunciado: 'A tirinha de Quino contrapõe os valores econômicos aos valores morais, espirituais, artísticos e humanos. Considerando a tirinha e os marcos legais como a Constituição Federal de 1988 e a LDB de 1996, a Educação Escolar Indígena propõe o(a)',
+    alternativas: [
+      'A) adoção de práticas pedagógicas que valorizem as línguas maternas, os saberes tradicionais e os modos de ensinar e de aprender das comunidades.',
+      'B) participação das comunidades, preparando os povos indígenas para a assimilação cultural e para o ingresso no mercado de trabalho.',
+      'C) uso de metodologias ativas, com foco na monocultura e no uso de tecnologias digitais para a disseminação de suas culturas e de suas identidades.',
+      'D) acesso integral aos conteúdos previstos na BNCC e a promoção da entrada em escolas regulares urbanas.',
+    ]
+  },
+  '67': {
+    enunciado: 'Durante uma aula sobre valores humanos usando a tirinha de Quino, um grupo de estudantes começa a ridicularizar um colega pelo modo que se veste, fazendo comentários sobre "valores de verdade". A ação pedagógica alinhada aos princípios das práticas restaurativas é',
+    alternativas: [
+      'A) priorizar a gestão do currículo e solicitar silêncio imediato para não comprometer o cronograma da aula, deixando para resolver o conflito de forma privada e administrativa com os envolvidos após o término do período.',
+      'B) utilizar a estratégia com foco na vítima e retirar o estudante hostilizado da sala para uma conversa de apoio, aconselhando-o sobre como se fortalecer, ignorar ou reagir às provocações de forma mais assertiva.',
+      'C) adotar uma abordagem punitiva e interromper a aula, identificando os agressores e aplicando uma advertência formal, a fim de demonstrar que tal comportamento é intolerável.',
+      'D) usar o conflito como objeto de aprendizagem coletiva e problematizar a relação entre valores éticos e consumo, conscientizando o grupo pela construção de um ambiente respeitoso.',
+    ]
+  },
+  '68': {
+    enunciado: 'Uma professora dos Anos Iniciais observa que um dos estudantes consegue resolver problemas matemáticos de adição com reserva, quando ela oferece dicas e o incentiva a usar material dourado. No entanto, ao tentar resolver os mesmos problemas sozinho, o estudante ainda demonstra insegurança. Considerando a teoria de Vigotski, a atuação da professora demonstra uma aplicação prática do conceito de ZDP, que se refere à',
+    alternativas: [
+      'A) capacidade da criança de resolver problemas complexos de forma autônoma, sem qualquer tipo de auxílio externo.',
+      'B) diferença entre o que a criança já consegue fazer sozinha e o que ela pode realizar com a mediação de pessoas mais experientes.',
+      'C) etapa do desenvolvimento em que as funções cognitivas da criança estão totalmente maduras e consolidadas.',
+      'D) habilidade inata da criança para imitar o comportamento de adultos e dos pares, sem a necessidade de compreensão do processo.',
+    ]
+  },
+  '69': {
+    enunciado: 'Uma professora de Educação Infantil propõe uma atividade em que as crianças, em pequenos grupos, precisam montar um quebra-cabeça de maior complexidade. Ao circular entre os grupos, ela faz perguntas, sugere estratégias e oferece pequenas ajudas quando necessário. De acordo com os pressupostos de Vigotski, essa prática pedagógica visa',
+    alternativas: [
+      'A) desenvolver a capacidade de autocorreção e a independência na resolução de problemas por meio da exposição repetida a desafios gradualmente mais complexos e com intervenção do adulto.',
+      'B) identificar o nível de desenvolvimento predominante de cada criança e suas dificuldades específicas a fim de adaptar o currículo de forma homogênea.',
+      'C) assegurar que as crianças dominem as habilidades básicas do quebra-cabeça antes de avançarem para atividades mais complexas, reforçando a base do aprendizado por estágios de prontidão.',
+      'D) promover a apropriação de modos de pensar e de elementos culturais por meio da interação social mediada, possibilitando a transição do nível de desenvolvimento potencial para o real.',
+    ]
+  },
+  '70': {
+    enunciado: 'Para pensar o processo avaliativo na Educação Infantil, especialmente no que se refere à linguagem oral, um professor de uma escola pública realiza observações e registros cotidianos sobre o desenvolvimento das crianças. Com base nos pressupostos de Vigotski, as práticas de avaliação na Educação Infantil devem incluir',
+    alternativas: [
+      'A) relatórios ou pareceres descritivos que explicitem o processo de aprendizagem da criança.',
+      'B) testes psicométricos que demonstrem o nível cognitivo de cada criança.',
+      'C) jogos e brincadeiras espontâneas que potencializem as singularidades de cada criança.',
+      'D) fichas classificatórias que comparem o desenvolvimento individual.',
+    ]
+  },
+  '71': {
+    enunciado: 'O método de alfabetização para EJA de Paulo Freire é dividido em três etapas: investigação, tematização e problematização. Considerando a 3ª estrofe da música "Problema Social" (Seu Jorge), a atividade realizada pelo professor que compreende a fase de investigação é',
+    alternativas: [
+      'A) propor a análise crítica das palavras e dos temas identificados na letra da música, buscando compreender seus significados sociais e culturais, a fim de valorizar a expressão oral e escrita.',
+      'B) desafiar os estudantes a superar a visão ingênua de mundo e a desenvolver uma postura crítica com base na letra da música, tornando-se capaz de transformar a realidade, a fim de produzir textos orais e escritos.',
+      'C) explorar as palavras e os temas mais relevantes do universo destes estudantes em relação à letra da música, incluindo o vocabulário e a realidade da comunidade, a fim de culminar em um texto oral e escrito.',
+      'D) solicitar aos estudantes que circulem as palavras que conhecem, criando uma lista para, em seguida, formar novas palavras parecidas com as que encontraram, a fim de socializar suas listas com o grande grupo.',
+    ]
+  },
+  '72': {
+    enunciado: 'Uma professora de EJA toma como pano de fundo a música "Problema Social" (Seu Jorge). Apresenta a letra da música, pede reflexões sobre as estrofes, apresenta o valor do limão e do pão para calcular quantos pães o menino poderia comprar, e provoca reflexões sobre saúde física e mental. Considerando a proposta, é correto afirmar que sua metodologia se apresenta como',
+    alternativas: [
+      'A) interdisciplinar, priorizando a memorização dos conteúdos, internalizando-os a partir de repetições mediadas pelo professor, por ser o detentor dos conhecimentos.',
+      'B) interdisciplinar, valorizando a reflexão crítica e a conscientização dos estudantes, incentivando-os a questionar a realidade e a buscar soluções para os problemas que os afetam.',
+      'C) transdisciplinar, prevendo a proposição à criação e à participação em projetos de longo prazo, em que os estudantes se envolvam na aplicação de conhecimentos específicos.',
+      'D) transdisciplinar, utilizando jogos para tornar a aprendizagem mais lúdica, divertida e envolvente, de forma disciplinar e próxima do conhecimento dos estudantes.',
+    ]
+  },
+  '73': {
+    enunciado: 'Uma professora de EJA, cujos estudantes são oriundos de diferentes regiões do Brasil, propõe a letra da música "Problema Social" como tema norteador para interdisciplinaridade em Geografia e Arte, usando metodologias ativas. As atividades propostas pela professora',
+    alternativas: [
+      'A) inserem o estudante no centro do processo de aprendizagem, em um projeto que valorize a multiterritorialidade e a troca de experiências multiculturais em produções escritas, orais e artísticas, envolvendo a integração entre as áreas de conhecimento.',
+      'B) focalizam a atenção no professor, valorizando o momento da aprendizagem de forma oral, escrita e artística, reconhecendo a contribuição de cada uma das disciplinas para um objetivo comum.',
+      'C) inserem a avaliação no centro do processo da aprendizagem, organizando a sala de aula em uma disposição que favoreça a atenção dos estudantes no momento da exposição dos conteúdos.',
+      'D) focalizam a atenção no professor, que inspira os estudantes por meio da arte musical, interpretando a letra que demonstra o quanto todos vivem a mesma realidade social e territorial.',
+    ]
+  },
+  '74': {
+    enunciado: 'Na aula de Educação Física de uma turma da EJA, a professora organizou sua proposta pedagógica envolvendo a música "Problema Social" como recurso didático. Considerando essa perspectiva de Educação Física para a EJA, a proposta tem como foco desenvolver conhecimentos sobre',
+    alternativas: [
+      'A) as partes do corpo de modo cooperativo ou recreativo, com foco em situações festivas, comemorativas, de confraternização, de diversão; e atividades rítmicas e expressivas que explorem gestos, ritmos, sons e música.',
+      'B) as partes do corpo de modo geral, assumindo um caráter individualizado com finalidades didáticas; e atividades rítmicas e expressivas em atividades de relaxamento para manter ou recuperar a saúde do corpo e da mente.',
+      'C) o corpo visando a percepção da própria anatomia, em exercícios rítmicos de consciência da respiração, percebendo o relaxamento e a tensão dos músculos, em exercícios rígidos, mecânicos e repetitivos.',
+      'D) o corpo e suas sensações e emoções, valorizando a cultura corporal de movimentos por meio de vivências em jogos dramáticos e mímicas; e atividades rítmicas e expressivas que explorem gestos, ritmos, sons e música.',
+    ]
+  },
+  '75': {
+    enunciado: 'Uma copeira aposentada voltou a estudar na EJA para aprimorar a leitura e escrita para seu trabalho como confeiteira. Na aula de Arte, a professora propôs uma sequência didática com a letra da música "Problema Social": escuta, reflexão crítica e livre manifestação artística. Considerando a sequência didática, a estudante da EJA teve a oportunidade de',
+    alternativas: [
+      'A) desenvolver uma relação de autoconfiança com a produção artística pessoal, relacionar a própria produção com a de outros, valorizar e respeitar a diversidade artística, cultural e estética, impulsionando-a em sua criatividade.',
+      'B) conhecer, relacionar e apreciar objetos, imagens, concepções artísticas e estéticas, observar essas produções, e reproduzir inspirações famosas, tornando-se admiradora de verdadeiros artistas e de obras de artes consagradas.',
+      'C) identificar e situar profissões e os profissionais de artes visuais, e observar o momento presente e as transformações históricas já ocorridas, pensando sobre o cenário profissional do futuro.',
+      'D) reconhecer e diferenciar diversas técnicas de arte, com procedimentos de pesquisa, experimentação e comunicação próprios, produzindo resenhas que retratem os caminhos para belas produções.',
+    ]
+  },
+  '76': {
+    enunciado: 'O projeto "Contos que Encantam" foi elaborado por uma escola municipal para enfrentar a desmotivação dos estudantes em relação à leitura de livros impressos. Considerando o projeto articulado com os Campos de Experiências da BNCC para a Educação Infantil, a abordagem da literatura infantil deve ser orientada para',
+    alternativas: [
+      'A) estimular a imaginação, a oralidade e a interação social por meio de atividades lúdicas e concretas, respeitando o desenvolvimento simbólico e a necessidade de movimento.',
+      'B) priorizar a aquisição de habilidades de decodificação e a formação de leitores autônomos, visando a preparação para a alfabetização formal e o domínio da leitura e da escrita nos anos subsequentes.',
+      'C) focalizar narrativas complexas, esperando que as crianças mantenham a atenção por períodos prolongados, em detrimento da interação e do movimento.',
+      'D) utilizar materiais didáticos com exercícios formais de interpretação textual, direcionando-os à verificação pontual da compreensão e do vocabulário.',
+    ]
+  },
+  '77': {
+    enunciado: 'As estratégias pedagógicas implementadas no projeto Contos que Encantam evidenciam uma concepção de prática educativa que se orienta para',
+    alternativas: [
+      'A) fomentar o contato com um repertório literário selecionado, utilizando principalmente a contação de histórias pelo professor como modelo para o desenvolvimento da fluência leitora e a apreciação gramatical.',
+      'B) utilizar as diversas atividades propostas como oportunidades para identificar o estágio de desenvolvimento das habilidades de leitura de cada criança, visando orientar intervenções pedagógicas focadas na superação de dificuldades específicas.',
+      'C) promover a imersão cultural e o desenvolvimento integral dos estudantes por meio de experiências significativas com a leitura, articulando diferentes linguagens e formas de expressão.',
+      'D) estimular a memorização de textos lidos pelos estudantes, a escolha de suas leituras e a organização de eventos literários, como os clubes de leitura, com o objetivo de ampliar o repertório individual e o prazer pela leitura independente.',
+    ]
+  },
+  '78': {
+    enunciado: 'Para aprimorar o letramento literário dos estudantes, considerando a desmotivação em relação aos livros impressos, os professores decidiram desenvolver atividades complementares. As abordagens didático-pedagógicas com esse objetivo são o(a)',
+    alternativas: [
+      'A) realização de saraus poéticos e de projetos de escrita criativa inspirados em obras lidas, utilizando um acervo literário diversificado e acessível em sala de aula.',
+      'B) direcionamento da leitura para livros paradidáticos que abordem temas sociais contemporâneos, utilizando um corpus literário selecionado para aprofundamento em um gênero específico.',
+      'C) aplicação de estudos linguísticos focados na estrutura frasal e na nomenclatura gramatical como principal ferramenta para decodificar o sentido dos textos literários.',
+      'D) seleção de clássicos da literatura universal para leitura, visando a formação de um repertório cultural realista, assumindo que o contato com tais obras gerará interesse intrínseco.',
+    ]
+  },
+  '79': {
+    enunciado: 'O projeto Contos que Encantam visa promover o gosto pela leitura e integrar-se ao currículo dos Anos Iniciais. A ação pedagógica que favorece a interdisciplinaridade desse projeto é o(a)',
+    alternativas: [
+      'A) desenvolvimento de módulos temáticos bimestrais centrados nas obras literárias do projeto, ministrados por especialistas em literatura e oferecidos como atividades de aprofundamento no contraturno escolar.',
+      'B) indicação de um professor com notório saber em literatura com a tarefa de elaborar um roteiro de como cada disciplina pode abordar os contos, cabendo aos demais professores seguir esse planejamento em suas aulas.',
+      'C) exploração de temas, personagens, cenários e conceitos das narrativas literárias e atividades, como a análise de ecossistemas de contos de fadas, o cálculo de distâncias percorridas por personagens ou a recriação de cenas.',
+      'D) planejamento de quinzenas literárias ao longo do ano letivo, durante as quais os conteúdos específicos das demais disciplinas são flexibilizados para dar prioridade às atividades desse projeto.',
+    ]
+  },
+  '80': {
+    enunciado: 'Considerando a implementação e o contínuo aprimoramento do projeto Contos que Encantam, frente às diretrizes educacionais para a Educação Infantil e aos desafios socioeconômicos e culturais da comunidade escolar, a atuação da coordenação pedagógica deve',
+    alternativas: [
+      'A) gerenciar a execução das etapas do projeto, assegurando o alinhamento metodológico entre os professores, a otimização do cronograma e a garantia da uniformidade das experiências de aprendizagem.',
+      'B) centralizar o planejamento estratégico do projeto, provendo aos professores recursos didáticos selecionados, e assegurando a otimização e a aplicação das práticas pedagógicas em sala de aula.',
+      'C) articular a equipe docente na concepção, na implementação e no aprimoramento contínuo do projeto, oferecendo apoio pedagógico sistemático e assegurando a coerência das ações com a proposta pedagógica da escola.',
+      'D) direcionar os processos de avaliação diagnóstica e somativa do projeto, com foco na análise quantitativa do progresso dos estudantes, subsidiando a elaboração de relatórios institucionais e a tomada de decisões administrativas.',
+    ]
+  },
+  'Disc.': {
+    enunciado: 'QUESTÃO DISCURSIVA — Em uma reunião pedagógica, os professores, motivados pela Lei n. 14.423/22 e pelos recorrentes discursos idadistas na escola, planejam atividades didáticas que abordem esse tema em seus planos de aula. Com base na situação-problema e na leitura dos textos motivadores (OMS sobre idadismo, Estatuto do Idoso Art. 22 e Paulo Freire), elabore um texto dissertativo-argumentativo que, respeitando os Direitos Humanos:',
+    alternativas: [
+      '1. discuta o idadismo como desafio social e educacional no Brasil;',
+      '2. aborde os efeitos das diferenças geracionais nas relações estabelecidas no contexto escolar;',
+      '3. apresente ao menos uma proposta de atividade para combater o idadismo e promover a integração intergeracional na escola.',
+    ]
+  },
+};
+
+const topics = [
+  {
+    questions: ['1', '2'],
+    theme: 'PNLD – Programa Nacional do Livro e do Material Didático',
+    disciplines: ['Princípios e Contextos para a Alfabetização e Letramento', 'Práticas para Alfabetização'],
+    area: 'mapped'
+  },
+  {
+    questions: ['3'],
+    theme: 'Saúde mental e medicalização na escola',
+    disciplines: ['Práticas e perspectivas para a Educação Inclusiva'],
+    area: 'mapped'
+  },
+  {
+    questions: ['26'],
+    theme: 'Paradigma da inclusão x integração',
+    disciplines: ['Práticas e perspectivas para a Educação Inclusiva'],
+    area: 'mapped'
+  },
+  {
+    questions: ['51', '52', '55'],
+    theme: 'Atendimento Educacional Especializado (AEE); tecnologias assistivas e TICs no AEE',
+    disciplines: ['Práticas e perspectivas para a Educação Inclusiva'],
+    area: 'mapped'
+  },
+  {
+    questions: ['6'],
+    theme: 'Perspectiva freireana na Educação',
+    disciplines: ['Políticas Públicas para a Educação', 'Educação de Jovens e Adultos'],
+    area: 'mapped'
+  },
+  {
+    questions: ['9'],
+    theme: 'História da Educação no Brasil',
+    disciplines: ['História da Educação e Teorias Pedagógicas'],
+    area: 'mapped'
+  },
+  {
+    questions: ['10', '11', '22', '45', '46'],
+    theme: 'Educação de Jovens e Adultos (EJA)',
+    disciplines: ['Educação de Jovens e Adultos'],
+    area: 'mapped'
+  },
+  {
+    questions: ['71', '72', '73', '74', '75'],
+    theme: 'Método de alfabetização para EJA – Paulo Freire',
+    disciplines: ['Educação de Jovens e Adultos'],
+    area: 'mapped'
+  },
+  {
+    questions: ['7'],
+    theme: 'Metodologias ativas, acesso à internet e recursos tecnológicos',
+    disciplines: ['Fundamentos da tecnologia para a vida acadêmica'],
+    area: 'mapped'
+  },
+  {
+    questions: ['20'],
+    theme: 'Lei nº 10.639/2003 – Ensino de História e Cultura Afro-Brasileira',
+    disciplines: ['Políticas Públicas para a Educação'],
+    area: 'mapped'
+  },
+  {
+    questions: ['23', '27'],
+    theme: 'Letramento científico',
+    disciplines: ['Campos de experiência na Educação Infantil', 'Práticas para o desenvolvimento do pensamento matemático'],
+    area: 'mapped'
+  },
+  {
+    questions: ['24'],
+    theme: 'Avaliação dos processos de ensino e aprendizagem',
+    disciplines: ['Avaliação dos processos de ensino e aprendizagem'],
+    area: 'mapped'
+  },
+  {
+    questions: ['25', '56', '57', '58', '59'],
+    theme: 'Avaliações externas em larga escala (Saeb, Ideb)',
+    disciplines: ['Avaliação dos processos de ensino e aprendizagem', 'Análise estatística de cenários educacionais'],
+    area: 'mapped'
+  },
+  {
+    questions: ['50'],
+    theme: 'Avaliação formativa',
+    disciplines: ['Avaliação dos processos de ensino e aprendizagem'],
+    area: 'mapped'
+  },
+  {
+    questions: ['Disc.'],
+    theme: 'Idadismo como desafio social e educacional; diferenças geracionais no contexto escolar',
+    disciplines: ['Educação de Jovens e Adultos'],
+    area: 'mapped'
+  },
+  {
+    questions: ['31', '32', '33', '34'],
+    theme: 'Literatura de cordel',
+    disciplines: ['Oficina de Formação do Professor Leitor'],
+    area: 'mapped'
+  },
+  {
+    questions: ['37', '38', '39', '40'],
+    theme: 'Habilidades relacionadas à Matemática',
+    disciplines: ['Práticas para o desenvolvimento do pensamento matemático'],
+    area: 'mapped'
+  },
+  {
+    questions: ['41', '42', '43'],
+    theme: 'Propostas pedagógicas na Educação Infantil',
+    disciplines: ['Práticas Educacionais na 1ª infância: crianças de 4 a 5 anos'],
+    area: 'mapped'
+  },
+  {
+    questions: ['47', '48', '49'],
+    theme: 'Trabalho interdisciplinar nos Anos Iniciais do EF; interpretação de texto',
+    disciplines: ['Fundamentos da Língua Portuguesa para Docência na Educação Básica'],
+    area: 'mapped'
+  },
+  {
+    questions: ['54'],
+    theme: 'LIBRAS',
+    disciplines: ['LIBRAS'],
+    area: 'mapped'
+  },
+  {
+    questions: ['60', '61'],
+    theme: 'Atuação do pedagogo no 3º setor',
+    disciplines: ['Conteúdos para a atuação do educador no 3º setor'],
+    area: 'mapped'
+  },
+  {
+    questions: ['68', '70'],
+    theme: 'Teoria de Vygotsky; Zona de Desenvolvimento Proximal (ZDP)',
+    disciplines: ['Aprendizagem e Desenvolvimento Humano I'],
+    area: 'mapped'
+  },
+  {
+    questions: ['76', '77', '78', '79', '80'],
+    theme: 'Campos de experiência (BNCC); literatura na Ed. Infantil; letramento literário',
+    disciplines: ['Campos de experiência na Educação Infantil', 'Oficina de Formação do Professor Leitor', 'Princípios e contextos para a Alfabetização e Letramento'],
+    area: 'mapped'
+  },
+  {
+    questions: ['17', '18', '19'],
+    theme: 'Gestão e planejamento curricular (Gimeno Sacristán, Tomaz Tadeu da Silva)',
+    disciplines: ['Coordenação Pedagógica', 'Gestão e Planejamento Curricular'],
+    area: 'mapped'
+  },
+  {
+    questions: ['62', '63'],
+    theme: 'Elaboração e implementação do PPP (Projeto Político-Pedagógico)',
+    disciplines: ['Coordenação Pedagógica', 'Gestão e Planejamento Curricular'],
+    area: 'mapped'
+  },
+  {
+    questions: ['35', '36'],
+    theme: 'Fundamentos teórico-metodológicos para o ensino de Geografia nos Anos Iniciais (Círio de Nazaré / Patrimônio Unesco)',
+    disciplines: ['Práticas para o ensino de História e Geografia', 'Culturas Brasileiras'],
+    area: 'mapped'
+  },
+  // GAPS
+  {
+    questions: ['5', '6', '15', '21'],
+    theme: 'Questões ambientais e sustentabilidade',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['8'],
+    theme: 'Educação no Campo',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['12', '13'],
+    theme: 'Pedagogia de Projetos articulada aos ODS (especialmente ODS 12)',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['4'],
+    theme: 'Uso do nome social na escola',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['14', '19'],
+    theme: 'Populações indígenas; oralidade e transmissão do conhecimento',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['16'],
+    theme: 'Território quilombola',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['28'],
+    theme: 'Equidade de gênero',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['29'],
+    theme: 'Ações afirmativas',
+    disciplines: [],
+    area: 'gap'
+  },
+  {
+    questions: ['30'],
+    theme: 'Racismo religioso',
+    disciplines: [],
+    area: 'gap'
+  },
+];
+
+// Build discipline color map
+const discColorMap = {};
+let colorIndex = 0;
+const allDiscs = new Set();
+topics.forEach(t => t.disciplines.forEach(d => allDiscs.add(d)));
+allDiscs.forEach(d => {
+  discColorMap[d] = COLORS[colorIndex % COLORS.length];
+  colorIndex++;
+});
+
+// Count disciplines
+const discCount = {};
+topics.forEach(t => {
+  t.disciplines.forEach(d => {
+    discCount[d] = (discCount[d] || 0) + 1;
+  });
+});
+
+// Stats
+const totalQ = new Set();
+topics.forEach(t => t.questions.forEach(q => { if(q !== 'Disc.') totalQ.add(q); }));
+document.getElementById('totalTopics').textContent = topics.length;
+document.getElementById('totalDiscs').textContent = Object.keys(discCount).length;
+document.getElementById('totalGaps').textContent = topics.filter(t => t.area === 'gap').length;
+document.getElementById('totalQ').textContent = totalQ.size + '+';
+
+// Build sidebar
+const discList = document.getElementById('disciplineList');
+const sortedDiscs = Object.entries(discCount).sort((a,b) => b[1]-a[1]);
+sortedDiscs.forEach(([disc, count]) => {
+  const c = discColorMap[disc];
+  const item = document.createElement('div');
+  item.className = 'discipline-item';
+  item.innerHTML = `
+    <span class="disc-dot" style="background:${c.dot}"></span>
+    <span class="disc-name">${disc}</span>
+    <span class="disc-count">${count}</span>
+  `;
+  item.addEventListener('click', () => filterByDisc(disc, item));
+  discList.appendChild(item);
+});
+
+// Gap list
+const gapList = document.getElementById('gapList');
+const gaps = topics.filter(t => t.area === 'gap');
+gaps.forEach(g => {
+  const item = document.createElement('div');
+  item.className = 'gap-item';
+  item.textContent = `Q.${g.questions.join(',')} — ${g.theme}`;
+  gapList.appendChild(item);
+});
+
+// Build cards
+const grid = document.getElementById('cardsGrid');
+let currentFilter = 'all';
+let activeDisc = null;
+
+function buildCards() {
+  grid.innerHTML = '';
+  topics.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.dataset.area = t.area;
+    card.dataset.discs = t.disciplines.join('|');
+
+    // Color stripe
+    let stripeColor = t.area === 'gap' ? '#d63770' : (t.disciplines[0] ? discColorMap[t.disciplines[0]].dot : '#aaa');
+    card.style.setProperty('--stripe', stripeColor);
+    card.style.cssText += `--stripe:${stripeColor}`;
+    card.querySelector ? null : null;
+
+    // Build inner
+    const qsHtml = t.questions.map(q => {
+      const bg = t.area === 'gap' ? 'rgba(214,55,112,0.12)' : 'rgba(58,94,232,0.12)';
+      const col = t.area === 'gap' ? '#b02060' : '#2a4cc4';
+      return `<span class="q-tag" style="background:${bg};color:${col}">${q === 'Disc.' ? 'Discursiva' : 'Q.' + q}</span>`;
+    }).join('');
+
+    let discsHtml = '';
+    if (t.disciplines.length > 0) {
+      discsHtml = t.disciplines.map(d => {
+        const c = discColorMap[d];
+        return `<span class="disc-tag" style="background:${c.bg};color:${c.text};border:1px solid ${c.border}">${d}</span>`;
+      }).join('');
+    } else {
+      discsHtml = '<span class="no-disc-tag">⚠ Sem disciplina correspondente no currículo</span>';
+    }
+
+    card.innerHTML = `
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:${stripeColor};border-radius:12px 12px 0 0"></div>
+      <div class="card-questions">${qsHtml}</div>
+      <div class="card-theme">${t.theme}</div>
+      <div class="card-disciplines">${discsHtml}</div>
+    `;
+
+    card.addEventListener('click', () => openDetail(t));
+    grid.appendChild(card);
+  });
+  applyFilters();
+}
+
+function applyFilters() {
+  const cards = grid.querySelectorAll('.topic-card');
+  cards.forEach((card, i) => {
+    const area = card.dataset.area;
+    const discs = card.dataset.discs;
+
+    let show = true;
+    if (currentFilter === 'gap') show = area === 'gap';
+    if (currentFilter === 'mapped') show = area === 'mapped';
+    if (activeDisc) show = show && discs.includes(activeDisc);
+
+    card.classList.toggle('hidden', !show);
+  });
+}
+
+// Filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    activeDisc = null;
+    document.querySelectorAll('.discipline-item').forEach(d => d.classList.remove('active'));
+    applyFilters();
+  });
+});
+
+function filterByDisc(disc, el) {
+  if (activeDisc === disc) {
+    activeDisc = null;
+    el.classList.remove('active');
+  } else {
+    activeDisc = disc;
+    document.querySelectorAll('.discipline-item').forEach(d => d.classList.remove('active'));
+    el.classList.add('active');
+    currentFilter = 'all';
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('[data-filter="all"]').classList.add('active');
+  }
+  applyFilters();
+}
+
+// Detail panel
+function openDetail(t) {
+  const overlay = document.getElementById('detailOverlay');
+  const qsEl = document.getElementById('detailQs');
+  const themeEl = document.getElementById('detailTheme');
+  const discsEl = document.getElementById('detailDiscs');
+  const qListEl = document.getElementById('detailQuestionsList');
+
+  qsEl.innerHTML = t.questions.map(q => {
+    const bg = t.area === 'gap' ? 'rgba(214,55,112,0.12)' : 'rgba(58,94,232,0.12)';
+    const col = t.area === 'gap' ? '#b02060' : '#2a4cc4';
+    return `<span class="q-tag" style="background:${bg};color:${col};font-size:13px;padding:5px 12px">${q === 'Disc.' ? 'Discursiva' : 'Questão ' + q}</span>`;
+  }).join('');
+
+  themeEl.textContent = t.theme;
+
+  // Question texts
+  const qItems = t.questions.map(q => {
+    const data = questionTexts[q];
+    if (!data) return '';
+    const label = q === 'Disc.' ? 'Questão Discursiva' : `Questão ${q}`;
+    const isGap = t.area === 'gap';
+    const bg = isGap ? 'rgba(214,55,112,0.05)' : 'rgba(58,94,232,0.04)';
+    const border = isGap ? 'rgba(214,55,112,0.18)' : 'rgba(58,94,232,0.18)';
+    const labelColor = isGap ? '#b02060' : '#2a4cc4';
+    const altColor = '#3a3a5c';
+    const altHoverBg = isGap ? 'rgba(214,55,112,0.06)' : 'rgba(58,94,232,0.06)';
+
+    const altsHtml = data.alternativas.map((alt, idx) => {
+      const letter = alt[0]; // A, B, C, D or 1, 2, 3
+      const rest = alt.slice(3);
+      const isLetter = ['A','B','C','D'].includes(letter);
+      return `<div style="display:flex;gap:10px;padding:7px 10px;border-radius:6px;margin-bottom:4px;background:transparent;transition:background 0.15s" 
+        onmouseover="this.style.background='${altHoverBg}'" onmouseout="this.style.background='transparent'">
+        <span style="font-size:12px;font-weight:700;color:${labelColor};min-width:20px;padding-top:1px">${letter}${isLetter?')':''}</span>
+        <span style="font-size:13px;line-height:1.5;color:${altColor}">${rest}</span>
+      </div>`;
+    }).join('');
+
+    return `<div style="padding:14px 16px;border-radius:10px;background:${bg};border:1px solid ${border};margin-bottom:12px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:${labelColor};text-transform:uppercase;margin-bottom:8px">${label}</div>
+      <div style="font-size:13.5px;line-height:1.6;color:#1a1a2e;font-weight:500;margin-bottom:12px">${data.enunciado}</div>
+      <div style="border-top:1px solid ${border};padding-top:10px">${altsHtml}</div>
+    </div>`;
+  }).join('');
+  qListEl.innerHTML = qItems;
+
+  if (t.disciplines.length > 0) {
+    discsEl.innerHTML = t.disciplines.map(d => {
+      const c = discColorMap[d];
+      return `<div class="detail-disc-item" style="background:${c.bg};border-color:${c.border};color:${c.text}">${d}</div>`;
+    }).join('');
+  } else {
+    discsEl.innerHTML = `<div style="color:#b02060;font-size:13px;padding:14px;background:rgba(214,55,112,0.08);border:1px solid rgba(214,55,112,0.25);border-radius:8px">⚠ Este tema não possui disciplina correspondente no currículo atual — pode representar uma lacuna formativa.</div>`;
+  }
+
+  overlay.classList.add('open');
+}
+
+function closeDetail() {
+  document.getElementById('detailOverlay').classList.remove('open');
+}
+document.getElementById('detailOverlay').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeDetail();
+});
+
+buildCards();
+</script>
+
+
+</body></html>
